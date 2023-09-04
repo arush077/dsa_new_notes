@@ -4,7 +4,7 @@ using namespace std;
 int main(){
 vector <vector <int>> arr(8,vector <int>(8,0));
 vector <vector <int>> visited(8,vector <int>(8,0));
-
+//this is a test
 queue <pair<pair<int,int>,int>> q;
 q.push({{0,0},0});
 visited[0][0]=1;
