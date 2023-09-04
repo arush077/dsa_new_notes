@@ -1,0 +1,169 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+
+//! better solution
+//!basic template of grids
+1. recursion
+
+f(i,j,grid){
+
+//!backchodi cases without +1 or -1 matlab 
+if(i+1>=n)    X wrong
+if(i>=n)      correct because at this i,j we want to make sure ki this i,j is not messing us
+
+//!base case when it reaches the destination
+if(i==n-1)    base case ki we reached the final column
+
+int left = grid[i][j] + f(i,j+1,grid);
+int right = grid[i][j] + f(i+1,j,grid);
+
+return max(left,right);
+
+
+}
+
+
+2. memoization : No problems sidha normal tarika kar dena
+
+f(i,j,dp){
+
+
+if(i+1>=n)    X wrong
+if(i>=n)      correct because at this i,j we want to make sure ki this i,j is not messing us
+
+//!base case when it reaches the destination
+if(i==n-1)    base case ki we reached the final column
+
+int left = grid[i][j] + f(i,j+1,grid);
+int right = grid[i][j] + f(i+1,j,grid);
+
+return dp[i][j]=max(left,right);
+
+
+}
+
+3.Tabulation : will give bt because ab isme dp[i-1] wagera form hoga which cant be allowed
+
+f(i,j){
+
+// if(i==n-1)    base case ki we reached the final column
+//! base case ke badle fill in them inside of the dp table and initialize it and bakchodi cases cant be filled so ignore them
+
+//! since yaha par function call ke badle f(i+1,j) --> dp[i+1][j] but u need to make sure ki ye possible he kya to store i+1 inside as index
+
+// int left = grid[i][j]+dp[i][j+1];
+// int right=grid[i][j] + dp[i+1][j];
+// wrong method he ye jo upar kiya he
+
+
+int left=1e9; int right=1e9;
+if(j+1<=n-1){left = grid[i][j]+dp[i][j+1];}
+if(i+1<=n-1){right=grid[i][j] + dp[i+1][j];}
+
+
+return dp[i][j]=max(left,right);
+
+
+}
+
+
+
+
+
+
+
+
+
+//! an alternate solution (bakwas)
+
+
+
+//! here we are moving from 0,1 0,2 0,3 to the last row 3,0 3,1 3,2 3,4 
+//! so simply when u reach the bottom give out the base case i==n-1 par 
+//! i+1 j-1 , i+1 j  , i+1 j+1 ye sare possibilities ke pichle if statements se inhe validate karna and pehle hi left down right ko esa value set karna for ditching and in this case to ditch it as maximum is asked u enter the minimum possible -1e9
+//! and driver function ke andar for loop hoga taaki wo 0,1 0,2 0,3 ye sab pass kar paaye to the function
+
+
+int sum(int i, int j, vector<vector<int>> &matrix, int n, int m) {
+    if (i == n - 1) {                                                            
+        return matrix[i][j];
+    }
+
+    int down = -1e9, left = -1e9, right = -1e9;                      
+    if (i + 1 < n && j - 1 >= 0) {
+        left = matrix[i][j] + sum(i + 1, j - 1, matrix, n, m);
+    }
+
+    if (i + 1 < n) {
+        down = matrix[i][j] + sum(i + 1, j, matrix, n, m);
+    }
+
+    if (i + 1 < n && j + 1 < m) {
+        right = matrix[i][j] + sum(i + 1, j + 1, matrix, n, m);
+    }
+
+    int x = max(left, down);
+    return max(x, right);
+}
+
+int getMaxPathSum(vector<vector<int>> &matrix) {
+    int n = matrix.size();
+    int m = matrix[0].size();
+    int maxi = INT_MIN;
+    for (int j = 0; j < m; j++) {
+        maxi = max(maxi, sum(0, j, matrix, n, m));
+    }
+
+    return maxi;
+}
+
+
+
+//! memoized code 
+//! simply dp array with -1 banana and pass karna by refernce 
+//! base case ke niche -1 wala if condition 
+// ! last me return ke waqt return dp[i][j]= jo bhi he///////
+
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int sum(int i, int j, vector<vector<int>> &matrix, int n, int m,vector <vector <int>>&dp) {
+    if (i == n - 1) {
+        // return matrix[i][j];      
+    }
+
+    if(dp[i][j]!=-1){return dp[i][j];}
+
+    int down = -1e9, left = -1e9, right = -1e9;
+    if (i + 1 < n && j - 1 >= 0) {
+        left = matrix[i][j] + sum(i + 1, j - 1, matrix, n, m,dp);
+    }
+
+    if (i + 1 < n) {
+        down = matrix[i][j] + sum(i + 1, j, matrix, n, m,dp);
+    }
+
+    if (i + 1 < n && j + 1 < m) {
+        right = matrix[i][j] + sum(i + 1, j + 1, matrix, n, m,dp);
+    }
+
+    int x = max(left, down);
+    return dp[i][j]=max(x, right);
+}
+
+int getMaxPathSum(vector<vector<int>> &matrix) {
+    int n = matrix.size();
+    int m = matrix[0].size();
+    int maxi = INT_MIN;
+    vector <vector <int>> dp(n,vector <int> (m,-1));
+    for (int j = 0; j < m; j++) {
+        maxi = max(maxi, sum(0, j, matrix, n, m,dp));
+    }
+
+    return maxi;
+}

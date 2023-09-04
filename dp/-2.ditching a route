@@ -1,0 +1,4 @@
+int take =1e9 wala tabhi lena hota he when u want to ditch a path
+escpecially in min max type of problems
+
+for otherwise jese no of possible paths jisme l+r karte ho tum take=1e9 mat dalna to ditch instead put take=0

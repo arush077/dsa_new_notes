@@ -1,0 +1,15 @@
+Reversing
+reverse(s.begin(),s.end());
+reverse only the selected part of an array
+reverse(s.begin()+1,s.end()-1); //iska meaning he ki s.begin() points at first element and s.end() points at last element so s.begin()+1 will point at second element of array and s.end()-1 will point at 2nd last element
+
+
+
+convert integer to a string
+int x=10 ==>> string s=to_string(x) karoge to s="10" aa jaega
+
+m.erase(key) to remove that key value pair
+
+typedef int p
+typedef me hash nahi aaata
+and public ke andar and fn ke bahar define kario

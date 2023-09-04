@@ -1,0 +1,28 @@
+graphs/-1.dfs.drawio
+
+
+void dfsrec(int node,adj,visited){
+
+//!node enter hogaya he       visitred[node]=1;
+
+for(auto child :adj[node]){
+
+//! child enter hone wala he abhi bas to enter karna he ya nahi wo socho  if(visited[child]){continue;}
+    
+    dfs(child,adj,visited);
+
+//! child wapas backtrack kar raha
+}
+
+//! node wapas backtrack kar raha
+}
+
+
+
+
+
+
+
+
+
+}

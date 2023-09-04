@@ -1,0 +1,55 @@
+
+//!simple he use standard grid traversal template
+//! TEMPLATE
+f(i,j,grid){
+
+//!backchodi cases without +1 or -1 matlab 
+if(i+1>=n)    X wrong
+if(i>=n)      correct because at this i,j we want to make sure ki this i,j is not messing us and return very large or very small value to ditch the complete path
+
+//!base case when it reaches the destination
+if(i==n-1)    base case ki we reached the final column
+
+int left = grid[i][j] + f(i,j+1,grid);
+int right = grid[i][j] + f(i+1,j,grid);
+
+return max(left,right);
+
+}
+
+
+//!Recursive CALL
+
+int sum(vector<vector<int>> &grid,int ia,int ja,int ib,int jb){
+
+int n=grid.size();
+int m=grid[0].size();
+
+if(ia>=n || ib>=n || ja<0 || jb<0 || ja>=m || jb>=m ){
+return -1e9;                                                   //! return such an absurd value since maxi nikalna he to -1e9 is now an absurd value
+}
+
+if(ia==n-1 || ib==n-1){
+    if(ja==jb){return grid[ia][ja];}
+    else{return grid[ia][ja]+grid[ib][jb];}
+}
+
+
+int maxi=-1e9;
+for(int dj1=-1;dj1<=1;dj1++){
+    for(int dj2=-1;dj2<=1;dj2++){
+        if(ja==jb){maxi=max(maxi,grid[ia][ja]+sum(grid,ia+1,ja+dj1,ib+1,jb+dj2));}
+        else{maxi=max(maxi,grid[ia][ja]+grid[ib][jb]+sum(grid,ia+1,ja+dj1,ib+1,jb+dj2));}
+    }
+}
+
+
+return maxi;
+
+
+}
+
+
+
+
+//! Memoization
