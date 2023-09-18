@@ -15,7 +15,6 @@ LCS(LONGEST COMMON SUBSEQUENCE)
    
     if(i<0 || j<0){return 0;}
 
-        int piche=0,ipiche=0,jpiche=0;
         if(s1[i]==s2[j]){                               //! i and j wale element equal ho to i-1 and j-1
             return 1+subber(i-1,j-1);
         }
