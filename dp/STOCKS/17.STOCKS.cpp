@@ -9,6 +9,9 @@ buy at 1 and sell at 6 profit=5 which has to be maximized
 // arr[sell]-arr[buy] = max
 // given that sell>buy
 
+//for the buy variable simply u are iterating from left to right so minimum value of array capture karte jaao
+
+
 arr[sell] - arr[buy] =max diff
 
 //! O(N) solution using looping                       
@@ -26,6 +29,8 @@ return maxdiff;
 
 //! REMEMBER THIS BY D MAXI MINI AND ITERATE OVER SELL FROM 1 TO N-1
 
+
+alternate is make a max array from the right as u want a big element on the right and min array from the left as u want min from the left
 
 
 
