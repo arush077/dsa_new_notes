@@ -1,5 +1,16 @@
 https://leetcode.com/problems/shortest-path-in-binary-matrix/description/
 
+
+//! 2D matrix par bfs lagare ho to fir koi need nahi he for visited vector because yaha neighbors i,j se pata chalte he 
+//! unlike normal graphs jaha adj list aati he jiske kaaran visited vector maintain karna padta he tumhe
+
+
+
+
+
+
+
+
 class Solution {
 public:
     int shortestPathBinaryMatrix(vector<vector<int>>& grid) {

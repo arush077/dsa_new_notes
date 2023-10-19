@@ -17,7 +17,7 @@ for(int i=0;i<edges.size();i++){
 
 //! Weighted wala
 edges[]={{1,2,10},{3,1,6}};   //!weighted wala in edges can still be shown in 2D array
-adj[]={{{}},{{2,10},{3,6}},{{1,10}},{{1,6}}};      //! adj has to be 3d for weigthed
+adj[]={{{}},{{2,10},{3,6}},{{1,10}},{{1,6}}};      //! adj has to be 2d vector which stores pairs so vector <vector <pair<int,int>>> adj;
 //! 0 ka to koi neighbor hi nahi
 //! 1 is connected to 2 at dist of 10
 //! 1 is also connected to 3 at dist of 6

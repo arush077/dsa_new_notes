@@ -1,0 +1,10 @@
+pa= positive anode oar 
+nc= negative cathode par
+
+double click on wire to bend them
+
+
+digitalWrite(13,HIGH);  //pin no 13 ko high
+delay(1000)
+digitalWrite(13,LOW);  //pin no 13 ko low
+delay(1000)

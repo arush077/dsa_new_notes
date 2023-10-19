@@ -6,8 +6,8 @@ public:
 
 
 
-        int nodes=numCourses;
-        vector <int> indegree(nodes,0);
+int nodes=numCourses;
+vector <int> indegree(nodes,0);
 vector <vector <int>> adj(nodes);
 for(int i=0;i<prerequisites.size();i++){
     int f=prerequisites[i][0];                      //! Making my new adj list
@@ -58,9 +58,5 @@ if(ans.size()!=nodes){return empty;}                     //! Boundary case aara 
 return ans;                                              //! ki agar what is there is a 2 way 
                                                          //! b/w 1 and 0 0->1 and 1->0 so this case 
                                                          //! me return empty array
-
-
-
-
     }
 };

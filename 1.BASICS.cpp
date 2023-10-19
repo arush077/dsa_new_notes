@@ -1,7 +1,11 @@
 //! Arrays
 merge 2 sorted arrays : 2pointer approach
 move zeroes in between of the array to the end of the array :2pointer approach i and j maintain karo and dekho jaha a[i]=0 and a[j]!=0 tab swap mardena : https://practice.geeksforgeeks.org/problems/move-all-zeroes-to-end-of-array0751/1?utm_source=geeksforgeeks&utm_medium=article_practice_tab&utm_campaign=article_practice_tab
+maximum 2 elements in :
+//! One method ye he ki do baar for loop lagado
+//! alternate efficient method he ki ek baar for loop lekin maxi1 and maxi2 maintain karna 
 
+//! Lekin agar map wagera me 2nd largest freq puch leta he to obviously do baar loop chalake ans de dena
 
 
 //!Graph
@@ -83,11 +87,11 @@ int f(root){
 //Maximum Width or Max dist b/w 2 nodes
 concept height wale hi code me tweak karna hota he simply ek naya maxi variable banana and then iss maxi variable passby ref ko use karna to find the maximum width 
 
-int f(root,&    maxi){
+int f(root,int &maxi){
     if(root==NULL){return 0;}
     int lh=f(root->left);
     int rh=f(root->right);
-    maxi=max(maxi,lh+rh+1);
+    maxi=max(maxi,lh+rh+1);     //! extra line jo height wale code me insert kiya he and maxi hold karega answer of maximum width
     return 1 + max(lw,rw);
 }
 
@@ -233,7 +237,16 @@ head=head->next
 }
 
 
-//! Generate Permutations and Subsequences/Subset are recursion backtracking ke qns
+//! Generate Subset are recursion backtracking ke qns
+//! GENERATION WALE QN USUALLY BACTRACKING SE HI HONGE
+
+REMEMBER KI 2^N lagega blud
+ABC ka 
+subsets ko size ke nazariye se dekho
+size=1 A,B,C
+size=2 AB BC AC
+size=3 ABC
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -243,7 +256,7 @@ if(i==ip.size()){
     return ;}
 
 op= op + ip[i];
-recursion(i+1,ip,op);
+recursion(i+1,ip,op);                             //!push call pop call
 op.pop_back();
 recursion(i+1,ip,op);
 
@@ -258,6 +271,75 @@ recursion(0,i,op);
 
 }
 
+
+
+//! Generate all permutations of a string
+void f(int i,string &s){
+    if(i==n-1){cout<<s;}   //BC
+    
+    for(int j=i;i<n;i++){
+        temp=s;                         //agar temp string nahi use karoge to fir ABC then A->A so ABC then A->B BAC then abhi BAC will be used but we wanted ABC me A->C but here we have a BAC instead which we dont want this ye bt islie aarahi he because you are passing it by reference so next stage wale ke answer/string value previous stages me bhi jud jaaenge
+        swap(temp[i],temp[j]);
+        f(i+1,temp);
+
+    }
+
+}
+
+
+//! GENERATE ALL BINARY SUBSEQUENCE OF SIZE=N
+concept: backtracking as generate karna he to fir 
+n=2 to 01 10 11 00 ye saare
+
+simply
+"" isme ya to 1 jodoge ya to zero to ek baar one jodke fn call then ek baar zero jodke fn call
+       
+       
+       ""
+   
+    "0"   "1"
+
+
+so pehle 0 ko push then call fn then pop zero (PUSH CALL POP ( PCP rule for backtracking ) )
+
+void generator(string &s,int n){
+    if(n==s.length()){cout<<s<<endl;return ;}
+    s.push_back('0');
+    generator(s,n);
+    s.pop_back();
+    s.push_back('1');
+    generator(s,n);
+    s.pop_back();
+}
+
+
+//! GENERATE ALL BINARY SUBSEQUENCE OF SIZE=N with no consecutive zeroes
+//same upar ka code tepo just with one condition ki zero tabhi add hoga when last element of the string is not zero warna double zero ho jaega
+
+void generator(string &s,int n){
+    if(n==s.length()){cout<<s<<endl;return ;}
+    
+    
+    if(s[s.length()-1]){        //! SIRF EK IF CONDN ZYADA HE BAAKI SAME AS LAST QN
+    s.push_back('0');
+    generator(s,n);
+    s.pop_back();}
+
+
+    s.push_back('1');
+    generator(s,n);
+    s.pop_back();
+}
+
+
+
+
+
+
+
+
+
+
 //!Sorting
 SIBM
 selection O(n^2)
@@ -269,9 +351,187 @@ merge 2 sorted arrays ->use 2 pointer and a new vector array to store the answer
 sort an array having 0s 1s 2s simply make a map and store freq and populate a new vector
 
 
-//! Target sum Pair
-a+b=10
+//! Target sum Pair =k
+a+b=10(k)
 then b=10-a and at every element try to find 10 - arr[i] is present in the array or not
+here u want b=10-a ie u need to find if another element whose value is 10-a exist or not 
+so u have to store the elements in the set and not the prefix sum in the set, prefix sum store tab karte he jab subarray sum=k chahiye hoga tab
+[ 1 , 2 , 3 ]  k=3
+  i
+
+search if 3-1 occur in set or not since set is empty so its not so push in set and move ahead
+set:1
+
+
+
+[ 1 , 2 , 3 ] 
+      i
+
+search if 3-2 occur in set or not since it occurs in set (set : 1) so arr[i] and 3-arr[i] are one of your pair and now push 2 in set and move ahead
+set: 1 2
+
+
+
+[ 1 , 2 , 3 ] 
+          i
+
+search if 3-3 dne in set so push in set and move ahead 
+set: 1 2 3 
+
+
+
+//!another 2 pointer approach used to solve 2sum and 3sum and 4sum problems is
+//pehle sort karo then 2 pointers 0 and n-1 pe lo and dekho greddily
+
+//first sort it
+[1,2,3]
+ i   j
+
+while(i<j){
+
+}
+
+[1,2,3]
+ i   j        tempsum=1+3 jo ki bada he k=3 se so chota karna hoga so i++ nahi karoge j-- karoge as its sorted
+
+
+[1,2,3]       temp=3=k so now milgaya so now i++ and j-- karo 
+ i j  
+
+[1,2,3]      while loop break hoga ab
+j  i
+
+
+sort(ans.begin(),ans.end());
+while(i<j){                                               TC:O(logn) but SC:O(1)
+    int tempsum=arr[i]+arr[j];
+    if(tempsum==k){
+        //found
+        i++;j--;
+    }
+    else if(tempsum<k){
+        i++;
+    }
+    else{j--;}
+
+
+}
+
+
+//! so for 4 sum
+pehle hi pure array ko sort maaro O(logn) + O(n^3)
+
+2 pointer method se ek while se hi 2 variables nikal sakte ho
+
+sort(arr.begin(),arr.end());
+for(int i=0;i<n;i++){
+    for(int j=i+1;j<n;j++){
+        // i and j se 2 element select maar liye now while loop lagake 2 variables aur nikallo
+        int newtarget = k-arr[i]-arr[j];
+
+        int left=j+1,right=arr.size()-1;
+        while(left<right){
+           //woi code upar dekhlo 2sum ka likho
+        }
+
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+//! Subarray sum =k
+
+[ 1 , 2 , 3 , 4 , 1 ]  lets say k=8
+          i       j
+
+now lets say you were iterating on j so prefixsum(j)-prefixsum(i) = k 
+so prefixsum(i) = k - prefixsum(j) 
+just check if such prefixsum(i) exists or not in the set
+
+
+
+bool subarraySumToK(int n, int k, vector<int> &arr) {
+    unordered_set <int> s;
+    int presum=0;
+    for(int i=0;i<n;i++){
+        presum=presum+arr[i];
+        
+        if(presum==k){return true;}
+        else if(s.find(presum-k)!=s.end()){return true;}
+        s.insert(presum);
+    }
+
+    return false;
+}
+
+
+//! yaad rakna presum+arr[i],presum=k,presum-k,s.insert(presum)
+
+//!Count no of subaarays with equal zeroes and ones
+// [0,1,0,0,1,1] 
+// 0,1 or 1,0 or 0,1 or 0,0,1,1 
+//concept 0-->-1 se replace kardo taake equal zero(-1 now) + equal one(+1) =0 ka sum de
+//so no of subbarrays which give off 0 sum lol
+// presum,presum==0,presum-0,s.insert
+
+
+
+
+
+
+
+
+
+//Largest subarray of sum=k
+same code sirf set ke badle map use karlena and that map will have index,presum 
+index because size of subbarray chahiye 
+presum because subarray of sum=k chahiye (subarray/substring/subsequence + sum=k 100% presum + map ya fir sliding window)
+
+so if(presum==k){size=i+1;}
+    else if (m.find()....){
+        auto itr=m.find();
+        int index=itr.second;
+        ans=max(ans,i-index)
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -283,6 +543,15 @@ then b=10-a and at every element try to find 10 - arr[i] is present in the array
 
 
 //! MAP
+
+maximum 2 elements freq :
+//! One method ye he ki do baar for loop lagado
+//! alternate efficient method he ki ek baar for loop lekin maxi1 and maxi2 maintain karna 
+
+//! Lekin agar map wagera me 2nd largest freq puch leta he to obviously do baar loop chalake ans de dena
+
+
+
 find if a pair exist with given sum
 //simply store the sum in a set and iterate through array and check if sum-arr[i] is present in the set or not
 
@@ -307,5 +576,133 @@ vector <int> arr={1,9,3,4,2,20};
     cout<<maxi;
 
     }
+
+
+
+
+//! Binary search
+
+1.Find first and last occurence of an element in an array
+
+//imp concept : ki ek ans variable banao and whenever arr[mid]==x dont return anything instead ans variable me store karo and start element chahiye to s=mid-1
+//              and end element chahiye to e=mid+1 kardena inside of the arr[mid]==key
+
+// int start(vector<long long> arr, long long x){
+//         // int n=arr.size();
+//         int s=0;
+//         int e=arr.size()-1;
+//         int ans=-1;
+//         while(s<=e){
+//             int mid=s+(e-s)/2;
+//             if(arr[mid]==x){
+//                 e=mid-1;
+//                 ans=mid;
+//             }
+            
+//             else if (arr[mid]>x){e=mid-1;}
+//             else {s=mid+1;}
+            
+//         }
+        
+//         return ans;
+//     }
+    
+//      int end(vector<long long> arr, long long x){
+//     //  int n=arr.size();
+//         int s=0;
+//         int e=arr.size()-1;
+//         int ans=-1;
+//         while(s<=e){
+//             int mid=s+(e-s)/2;
+//             if(arr[mid]==x){
+//                 s=mid+1;
+//                 ans=mid;
+//             }
+            
+//             else if (arr[mid]>x){e=mid-1;}
+//             else {s=mid+1;}
+            
+//         }
+        
+//         return ans;
+//     }
+
+
+
+
+
+//! SLIDING WINDOW
+
+// fixed size=k
+
+while(i<n && j<n){
+    sum+=arr[i];
+
+    if(j-i+1<k){j++;}
+    else if (j-i+1==k){
+
+        //pehle max wagera nikalo uske baad fir sum-=arr[i] sab karo
+
+        ans=max(ans,sum);
+
+        sum-=arr[i];
+        
+        
+        i++;
+        j++;
+    }
+}
+
+
+
+// variable size
+sum=k ya kuch dede to 
+
+while(i<n && j<n){
+    sum+=arr[i];
+
+    if(sum<k){j++;}
+    else if (sum==k){
+        maxi=
+        j++;
+        //shocking ki j++ karre ho equality pe bhi
+    }
+
+
+    if(sum>k){
+        while(sum>k){
+
+            sum-=arr[i];
+            i++;
+        }
+
+
+        //while ke andar i++ and negative cases hatao and while ke bahar j++
+        j++;
+    }
+
+
+
+
+
+}
+
+
+
+
+
+variable wale qns
+Longest string with K unique char : var sliding window and simply map banana and if(m.size()<k) {j++}  if(m.size()==k){ans me dalna + j++}     if(m.size()>k){while(m.size()>k){m[arr[i]]--;i++}  j++   }
+Longest string without repeating char : var sliding window + simply set banana as non repeating==set banana
+
+zero flipping
+Nice subarray
+
+
+
+
+
+
+
 
 

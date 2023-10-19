@@ -10,12 +10,14 @@ int f(root){
 }
 
 //Maximum Width or Max dist b/w 2 nodes
-int f(root){
+int f(root,int &maxi){
     if(root==NULL){return 0;}
-    int lw=f(root->left);
-    int rw=f(root->right);
-    return 1 + max(lw,rw);
+    int lh=f(root->left);
+    int rh=f(root->right);
+    maxi=max(maxi,lh+rh+1);
+    return 1 + max(lh,rh);
 }
+
 
 
 //Maximum Sum Path in a Tree
@@ -25,3 +27,15 @@ int f(root){
     int rs=f(root->right);
     return root->val + max(ls,rs); 
 }
+
+
+//Max sum b/w any 2 points in a Tree
+int f(root,int &maxi){
+    if(root==NULL){return 0;}
+    int ls=f(root->left);
+    int rs=f(root->right);
+    maxi=max(maxi,ls+rs+root->val);   //! Curveball found him
+    return root->val + max(ls,rs);    //! Non curveballers 
+}
+
+

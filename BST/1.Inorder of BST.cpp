@@ -4,3 +4,10 @@ https://www.codingninjas.com/studio/problems/binary-search-trees_8160443?utm_sou
 
 //! so if someone asks to find minimum element of BST it would simply be the arr[0] of inorder
 //! maximum element of BST would be simply inorder[n-1] or last element of inorder Traversal
+
+void inorder(node){
+    if(root==NULL){return ;}
+    inorder(root->left);
+    ans.push_back(root->val);
+    inorder(root->right);
+}

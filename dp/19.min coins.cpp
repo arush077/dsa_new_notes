@@ -6,6 +6,16 @@ https://leetcode.com/problems/coin-change/
 //! nottake=0 + f(i-1,W)
 
 
+
+//! u can always add additional conditions like if(index<0){return -1e9;} ya fir if(sum==0){return 0;} (think of base case as another case where array is given and we need to find min coins to get a 0 sum ie we need 0 coins lol)
+//! But that index==0 and sum==0 is nescessary index==0 to explicity handle kiya he whereas sum<0 to if(sum-coins[index]>=0) {to hi call karo} 
+
+
+
+//! One more conceptual qn is that ki index==0 pe hi kyu divisible he ya nahi check karna ???? no we are not only checking divisibility at index==0 but at all the elements its hidden behind the unbounded knapsack which allows u to take as many elements as u want from a particular element which is inderectly equal to divisibilty only
+
+
+
 int coiner(int index,int sum,vector<int>& coins){
 
      if(index==0){

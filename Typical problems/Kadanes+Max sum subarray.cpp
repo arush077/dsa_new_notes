@@ -11,3 +11,22 @@ for(int i=0;i<n;i++){
 
 
 }
+
+
+eg:
+
+
+//concept element=1 now 1 has two choices ki prev train me jud jaau ya akele naya start karu so max(0+1,1) =1 =curr_sum
+//        element=3 now 3 has two choices ki prev train me jud jaau ya akele naya start karu so max(1+3,3) =3=curr_sum
+
+arr[]=        [ 1 , 3 , -5 , -1 , 2 , 4 ]
+curr_sum=   0   1   4   -1   -1   2   6
+max_sum=    0   1   4    4    4   4   6
+
+so return max_sum=6;
+
+
+
+
+
+

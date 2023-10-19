@@ -6,11 +6,16 @@ reverse(s.begin()+1,s.end()-1); //iska meaning he ki s.begin() points at first e
 
 //! Set
 set me iterate karne ko u need an iterator
+s.erase(key);
+
 for(auto itr: s){
     cout<<itr; }
 
 //! Map
 find kardiya to uss element ko access kese kare ?
+
+m.erase (key) to remove that shit
+
 if(m.find(key)!=m.end()){
 
     auto itr=m.find(key);
@@ -108,6 +113,24 @@ int main()
 
 string s="ABC"
 
+s.clear() will remove all the elements
+s.erase(s.begin()+0) will clear the starting element
+s.erase (s.begin+0,s.begin +2);
+
 so pushback and popback dono kaam karte he jo vectors me bhi kaam karte the and these 2 stl can be used as a replacement for stack and s="" me hi kaam hojaega instead of taking an empty stack
 s.push_back('D'); -> ABCD
 s.pop_back(); -> ABC
+
+//SUBSTR VIMP
+s.substr (i,length)
+
+//!VIMP PART OF STRING
+whenever a no is given in a string "1234" s[0] ya s[1] wont work as they will give '1' and not 1
+
+string s="1234";
+int x=stoi(s);
+
+//so x me integer value aa jaegi
+
+warna remember s[i]-'0' karke hi use karna s[i] is //!danger 
+ya fir stoi laga lena stoi = string to integer
