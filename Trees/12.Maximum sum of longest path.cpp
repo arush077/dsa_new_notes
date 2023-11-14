@@ -1,6 +1,6 @@
 https://practice.geeksforgeeks.org/problems/sum-of-the-longest-bloodline-of-a-tree/1
 
-//!Now this is not a curveball concept
+//!Now this is not a curveball concept (curveball tab karo only when between 2 points ka pucha ho tab)
 //! yaha u need to reach the null from the root and in saare possibilities me se sabse lambe wale ka sum return karna he
 //! USE INORDER TRAVERSAL  int &sum | int &maxisum | int count | int &maxicount  :
 //concept ye he ki count can be passed as a recursion variable where in each call u can increament count

@@ -10,7 +10,7 @@ int f(int i,int pichla,vector <int> arr){
         int take=-1e9;
         if(pichla<arr[i] || pichla==-1){
             take=1+f(i+1,arr[i],arr); 
-        }
+        } 
         int nottake=0+f(i+1,pichla,arr);
 
         return max(take,nottake);
@@ -63,8 +63,7 @@ dp[n][n+1]
         if(pichla==-1 || arr[pichla]<arr[i]){
             take=1+f(i+1,i,arr,dp);
         }
-        int nottake=0+f(i+1,pichla,arr,dp);
-
+        int   
         return dp[i][pichla+1]=max(take,nottake);
 
     }
@@ -107,3 +106,7 @@ int lengthOfLIS(vector<int>& nums) {
 
 
     }
+
+
+
+

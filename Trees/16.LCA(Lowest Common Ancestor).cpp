@@ -61,3 +61,25 @@ so 1 is also the common ancestor but 3 is the lowest common ancestor
 //! Efficient recursive solution
 //if you find node1 or node2 then return a true warna return a false,null node he to return false
 
+//! Drawio me true false karke diya tha lekin isme false=null true=root 
+
+ Node* lca(Node* root ,int n1 ,int n2 )
+    {
+        if(root==NULL){return NULL;}
+        else if(root==n1 || root==n2){return root;}
+
+        Node* left= lca(root->left,n1,n2);
+        Node* right=lca(root->right,n1,n2);
+
+        //koi ek null ho to 
+        if(left==NULL){return right;}
+        if(right==NULL){return left;}
+        return root;
+
+
+
+
+
+    }
+
+

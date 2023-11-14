@@ -8,6 +8,22 @@ maximum 2 elements in :
 //! Lekin agar map wagera me 2nd largest freq puch leta he to obviously do baar loop chalake ans de dena
 
 
+array me 2 elements uthane he -> 2 for loops lagenge
+find a pair whose sum=10 ya ese cases me brute force me tumhe do element uthane padenge
+for(int i=0;i<n-1;i++){
+    for(int j=i+1;j<n;j++){
+
+    }
+}
+
+
+array me 3 elements uthane he -> 3 for loops lagenge
+array me 4 elements uthane he -> 4 for loops lagenge
+
+
+
+
+
 //!Graph
 Toposort :indegree banao and then simply queue banao and indegree fill karo and queue fill karo and queue me wo elements daalna jinke indegree 0 ho.
           while (!q.empty) tabtak q.top ko ans me dalo and pop maro
@@ -27,6 +43,11 @@ void dfsrec(node,adj,visited){
         }
     }
 }
+
+
+//!CYCLE DETECTION (CONCEPT: ki wahi node par wapas aajaooooooooo to cycle detect)
+//!UNDIRECTED GRAPH (2 ways) : isme dfs+parent approach lagana undirected walo me ki (((nextnode))) is not parent + it is already visited 
+//!DIRECTED
 
 
 //BFS
@@ -152,6 +173,13 @@ void f(root){
 
 
 //! STRING
+
+
+stoi ==> converts string to integer
+int x=stoi(s1);
+
+
+
 // Pattern matching O(N*M) se to kar hi sakte he very easily
 matlab i iterate karega s1 pe and s2 pe j iterate karega 
 but u comapare s1[i+j] with s2[j]
@@ -201,11 +229,18 @@ return false;
 
 
 warna fir KMP lagake khush rehna O(n)
+RK=> rabin karp ya fir KMP algorithm lagate he warna
+
 
 // Check if a string is subsequence of another
 kuch nahi he bas 2 pointer leke karna count++ jaha equal and count=smaller string ka length ho to ha s2 will be subseq of s1
 
-//Check 
+
+//occurences bhi mapp me store kar sakte ho (used for isomorphic string checking)
+abaaxa
+a=> 0,2,3,5
+so a occurs on these indexes so unordered map <char,vector<int>> m;
+m[str[i]].push_back(i);
 
 
 
@@ -239,6 +274,14 @@ head=head->next
 
 //! Generate Subset are recursion backtracking ke qns
 //! GENERATION WALE QN USUALLY BACTRACKING SE HI HONGE
+
+
+//! RECURSION VS BACKTRACKING
+//recursion = normal variable   +   increament in function itself.
+//backtracking= byreference var +   increament outside of function calls(with nescessary decreaments also)
+
+
+
 
 REMEMBER KI 2^N lagega blud
 ABC ka 
@@ -289,6 +332,10 @@ void f(int i,string &s){
 
 //! GENERATE ALL BINARY SUBSEQUENCE OF SIZE=N
 concept: backtracking as generate karna he to fir 
+
+//! IMP == BY REFERNCE WALE VARIABLES KA HI BACKTRACKING HOTA HE !!!
+
+
 n=2 to 01 10 11 00 ye saare
 
 simply
@@ -377,6 +424,28 @@ set: 1 2
 
 search if 3-3 dne in set so push in set and move ahead 
 set: 1 2 3 
+
+
+//! Target difference
+
+target sum me x+y=10  
+// 10-y=x ya 10-x=y  matlab 10-present element hi hora he dono cases me
+
+target difference me x-y=10
+//y+10=x ya x-10=y   matlab 10+present element ya fir present element-10 dono possibilites aati he difference ke case me
+
+//    unordered_set <int> s;
+//     for(int i=0;i<size;i++){
+//         if(s.find(arr[i]+n)!=s.end() || s.find(arr[i]-n)!=s.end() ){return true;} //! dono condition ayenge subtraction wale me
+//         s.insert(arr[i]);
+//     }
+    
+//     return false;
+
+
+
+
+
 
 
 
@@ -526,15 +595,6 @@ so if(presum==k){size=i+1;}
 
 
 
-
-
-
-
-
-
-
-
-
 //! 2D array
 
 //spiral traversal just maintain top,bottom,left,right
@@ -549,11 +609,81 @@ maximum 2 elements freq :
 //! alternate efficient method he ki ek baar for loop lekin maxi1 and maxi2 maintain karna 
 
 //! Lekin agar map wagera me 2nd largest freq puch leta he to obviously do baar loop chalake ans de dena
+//!noooo and 2nd largest frequency puche in map ka qn so use the R method and dont use ordered map 
+
+//so mx1 and mx2 maintain karna simply
+if(arr[i]>mx1){
+    mx2=mx1;
+    mx1=arr[i];
+}
+
+else if (arr[i]>mx2){
+    mx2=arr[i];
+}
+
+//! YAAD RAKH LE IF + ELSE IF pehle wale me arr[i]>mx1 and dusre else if wale me arr[i]>mx2 
+and yahi cheez ko map se replicate karna he
+so
+if(itr.second>mx1){
+    mx2=mx1;
+    mx1=itr.second;
+}
+
+else if(itr.second>mx2){
+    mx2=itr.second;
+}
+
+
+
+
+
 
 
 
 find if a pair exist with given sum
 //simply store the sum in a set and iterate through array and check if sum-arr[i] is present in the set or not
+
+
+
+
+//! VVVVVVVV IMP
+[5,1,5,2,3,4]
+         |
+         i
+1.    to iske piche         = set use karle to check iske pehle wo aaya he ki nahi
+   "5" aya he ya nahi
+
+2.   to iske piche          = map use karni hogi to tell ki iske piche "5" do baar aaya hua he
+    "5" kitni baar aya he
+
+3.  map and set wale qn are of 2 types
+    //1. pair of sum=k  -> tab to element ko push karna hoga set ya map me
+    //2. subarray/subsequence of sum=k  -> tab to presum ko push karna hoga set ya map me
+
+
+
+
+
+
+
+
+
+qn = if such a target sum pair present or not = use set.
+qn = find count of such target sum pairs = use map.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Longest Consecutive Subsequence
 
@@ -697,6 +827,9 @@ Longest string without repeating char : var sliding window + simply set banana a
 
 zero flipping
 Nice subarray
+
+
+
 
 
 

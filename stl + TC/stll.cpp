@@ -7,6 +7,7 @@ reverse(s.begin()+1,s.end()-1); //iska meaning he ki s.begin() points at first e
 //! Set
 set me iterate karne ko u need an iterator
 s.erase(key);
+s.clear(); to clear the entire thing
 
 for(auto itr: s){
     cout<<itr; }
@@ -58,6 +59,12 @@ proper array ka size nikalna ho to sizeof(arr)/arr(arr[0]) kardo
 //! Pair me hamesha .first and .second hi chalta
 
 //! Sorting Weird Shit
+
+//sorting in vector and sorting in array are 2 diff things
+sort(v.begin(),v.end());
+sort(arr+0,arr+n);
+
+
 
 //1.sort in descending order
 
@@ -111,6 +118,12 @@ int main()
 
 //! STRING
 
+
+
+stoi ==> converts string to integer
+int x=stoi(s1);
+
+
 string s="ABC"
 
 s.clear() will remove all the elements
@@ -134,3 +147,10 @@ int x=stoi(s);
 
 warna remember s[i]-'0' karke hi use karna s[i] is //!danger 
 ya fir stoi laga lena stoi = string to integer
+
+
+//! HEAPS
+max heap : priority_queue<int> maxh;
+min heap : priority_queue<int,vector<int>,greater<int>> minh;   (IVG)
+
+

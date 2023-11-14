@@ -20,7 +20,7 @@ int f(root,int &maxi){
 
 
 
-//Maximum Sum Path in a Tree
+//Maximum Sum Path in a Tree from root to NULL;
 int f(root){
     if(root==NULL){return 0;}
     int ls=f(root->left);
@@ -39,3 +39,6 @@ int f(root,int &maxi){
 }
 
 
+concept: max height and max sum root node se null tak ki dekhi jaati he jo standard code aati he 
+                                and
+         max height and max sum between any 2 nodes are just tweaked versions of max sum/height from root to null (tweak=introduce a new by refernce ans variable which takes into account the curveball concept)

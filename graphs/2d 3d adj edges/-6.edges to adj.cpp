@@ -17,12 +17,16 @@ for(int i=0;i<edges.size();i++){
 
 //! Weighted wala
 edges[]={{1,2,10},{3,1,6}};   //!weighted wala in edges can still be shown in 2D array
-adj[]={{{}},{{2,10},{3,6}},{{1,10}},{{1,6}}};      //! adj has to be 2d vector which stores pairs so vector <vector <pair<int,int>>> adj;
+adj[]={{{}},{{2,10},{3,6}},{{1,10}},{{1,6}}};      //! adj has to be 3d vector which stores pairs so vector <vector <pair<int,int>>> adj;
 //! 0 ka to koi neighbor hi nahi
 //! 1 is connected to 2 at dist of 10
 //! 1 is also connected to 3 at dist of 6
 //! 2 is connected to 1 at dist of 10
 //! 3 is connected to 1 at dist of 6
+
+//! MOST IMP IS KI (((2Dvector + pair<int,int> ))) hoga adj list me
+
+vector<vector<pair<int,int>>> adj OR vector<pair<int,int>> adj[N];
 
 for(int i=0;i<edges.size();i++){
     int f=edges[i][0];
@@ -41,3 +45,8 @@ for(int i=0;i<edges.size();i++){
 // vector <vector <int>> adj(V) //! Correct
 //! because baadme u need to acess adj[f] and adj[s] so u need to define no of vertices
 
+//! simple chiz yaad rakho bfs dfs me jabhi bhi neighbors pe jaoge
+//! non weigthted
+for(auto itr:adj[node]){
+    int node=itr;
+}

@@ -10,6 +10,9 @@
 
 //! minh me put {0,src} why ?  first is the dist and second is the src so src se dist to 0 hi hoga
 //! Djkastra returns a dist array having distance of all indexes from the src node
+//! Djkastra is O(nlogn)
+
+
 
 priority_queue <pair<int,int>,vector <pair<int,int>>,greater <pair<int,int>>> minh;
 minh.push({src,0});
