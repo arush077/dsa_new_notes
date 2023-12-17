@@ -30,12 +30,26 @@ for(auto itr : m){
     int value = itr.second;
 }
 
+//! Classes and Nodes
+class Node
+{
+public:
+    int val;
+    vector<Node *> neighbors;
+}
+
+whenver u make a new node lets say
+    Node *newnode = new Node(x);
+int x         = newnode->val;
+vector<int> v = newnode->neighbors;
+
+//so accessing anything inside the class can be typically done by ((  ->   )) no matter what type of shit it is
 
 
 
 
-convert integer to a string
-int x=10 ==>> string s=to_string(x) karoge to s="10" aa jaega
+
+
 
 m.erase(key) to remove that key value pair
 
@@ -48,6 +62,30 @@ and define karte ho tabhi hashtag aata he
 
 normal sort an array = sort(arr.begin(),arr.end());
 sort a 2d array
+
+
+
+
+
+
+
+
+
+
+
+
+//!vectors and arrays
+
+imp for loop ka alternative version 
+vector<int> v={1,2,3};
+for(auto itr : v) {//!ese mat karo}
+for(int x : v){cout<<x;}  {//matlab jo v ka data type he uske hisaab se chalao harbaar auto lene ki zarurat nahi}
+
+vector<Node*>v={10,20,30};
+
+for(Node* n :v){cout<<n;}
+
+
 
 
 //!size
@@ -119,9 +157,15 @@ int main()
 //! STRING
 
 
+convert integer to a string
+int x=10 ==>> string s=to_string(x) karoge to s="10" aa jaega
 
 stoi ==> converts string to integer
 int x=stoi(s1);
+
+
+remember to_string ka opposite stoi he 
+
 
 
 string s="ABC"

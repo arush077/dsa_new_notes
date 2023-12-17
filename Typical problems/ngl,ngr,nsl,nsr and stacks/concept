@@ -1,0 +1,22 @@
+stacks me nsr nsl ngr ngl ye concepts hi lagte he 
+generally O(n^2) wale qns me use hota he ye concepts
+and you can reduce these questions to O(n)
+
+for(int i=0;i<n;i++){
+    for(int j=i+1;j<n;j++)
+}
+
+Ye template dikha where j wala loop depends on i then 100% stack ka question he
+
+remember u are finding just bada ya just chota wala elements not the max element on the right ya max element on the left infact its the nearest bigger element on the right ya left
+
+
+
+arr = [ 2 , 1 , 3 , 4 , 5]
+ngr = [ 3 , 3 , 4 , 5 ,-1]
+ngl = [-1 , 2 ,-1 ,-1, -1]
+
+mgr =[ 5 , 5 , 5 , 5 , 5 ]
+mgl =[ 2 , 2 , 3 , 4 , 5 ]
+
+most greater on the left ya right ke lie koi bhi stacking nahi lagti only one array traversal lagti he but ngl ngr nsl nsr ke lie to 100% stack lagegi

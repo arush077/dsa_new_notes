@@ -1,6 +1,10 @@
 https://www.geeksforgeeks.org/container-with-most-water/
 
 
+
+
+
+
 int maxArea(int A[], int len)
 {
     int l = 0;
@@ -21,3 +25,6 @@ int maxArea(int A[], int len)
     }
     return area;
 }
+
+
+//! Typical problem of max area container where we start 2 pointers from end to end and then in dono locations par heights ko compare karke andar andar karte rehte he in pointers ko to achive maximum height
