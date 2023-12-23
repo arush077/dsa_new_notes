@@ -349,6 +349,8 @@ simply
 
 so pehle 0 ko push then call fn then pop zero (PUSH CALL POP ( PCP rule for backtracking ) )
 
+
+//! standard method to generate strings of length n by pcp push call pop method
 void generator(string &s,int n){
     if(n==s.length()){cout<<s<<endl;return ;}
     s.push_back('0');
@@ -395,6 +397,27 @@ bubble O(n^2)
 maerge sort O(nlogn)
 
 merge 2 sorted arrays ->use 2 pointer and a new vector array to store the answer2
+
+void mergesort(arr[],int s,int e){
+
+    if(s>=e){return ;}
+
+    int mid=(s+e)/2;
+
+    mergesort(arr[],s,mid);
+    mergesort(arr[],mid+1,e);
+    merge(s,mid,e);                             //code to merge 2 sorted arrays
+
+}
+
+//! jabtak ek ek tukde me tutega nahi tabtak merge nahi karna 
+
+
+
+
+
+
+
 sort an array having 0s 1s 2s simply make a map and store freq and populate a new vector
 
 

@@ -11,19 +11,30 @@ node * head=new node (10);
 //! NODILIZING CONCEPT
 arr[n]={1,2,3}; make a LL out of it
 
-// every arr[i] ko tum pointer ki tarah nahi dekh sakte
-// pehle arr[i] ko nodilize karo 
-//nodilize---->   node * newnode=new node(arr[i]);  matlab normal integer ko pointer banana
-node * newnode=new node(arr[0]);
-node *head=newnode,tail=newnode;
-for(int i=1;i<n;i++){
-    // arr[1] arr[2] arr[3] ye sabko nodilize kon karega
-    node * newnode2=new node(arr[i]);
-    tail->next=newnode2;
-    tail=tail->next
+//  og node and nn ... og node banta he for loop ke bahar and nn banta he for loop ke andar and then og->next=nn and og=og->next and last me head->next answer dena
+
+og node (value=0) 
+for()
+{
+    nn=                              //nn define karna
+    og->next=nn;                     //og->next=nn
+    og=og->next;                     //og ko aage badhana
 }
 
-tail->next=NULL;
+
+Node *og=new Node(0);
+Node* head=og;          //ek head ka copy banake rakna
+for(int i=0;i<v.size();i++){
+    Node* nn=new Node(arr[0]);
+    og->next=nn;
+    og=og->next;
+}
+
+return og->next
+
+
+
+
 
 
 //! IMP THING TO KEEP IN MIND WHILE WRITING LL ANSWERS
@@ -32,4 +43,4 @@ keep in mind to make sure ki a->next   a!=NULL
 
 so LL me bhi boundary cases likh lo
 a->next and a->next->next exists in the code then
-a==NULL and a->next==NULL ka boundary case likho
+a==NULL and a->next==NULL ka boundary case likho iska order ese hi rakna chote se bada pehle a!=NULL fir a->next!=NULL

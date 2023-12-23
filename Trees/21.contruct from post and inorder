@@ -1,0 +1,48 @@
+  TreeNode* maker(vector<int>& postorder, vector<int>& inorder,int spo,int epo,int sin,int ein){
+        if(spo>epo || sin>ein){return NULL;}
+        if(spo==epo){
+         TreeNode* newnode=new TreeNode(postorder[spo]);
+         return newnode;
+     }
+     else if(sin==ein){
+         TreeNode* newnode=new TreeNode(postorder[sin]);
+         return newnode;
+     }
+
+
+    int middler=postorder[epo];
+
+     int mindex=sin;
+     for(int i=sin;i<=ein;i++){
+         if(inorder[i]==middler){
+             mindex=i;
+             break;
+         }
+     }
+
+
+    TreeNode* nnode=new TreeNode(middler);
+
+    //inorder
+    //left he to fir sin to mindex-1  ie(mindex-1-sin)+1 ie== mindex-sin elements
+    //right he to fin mindex+1 to ein  it(ein-(mindex+1))+1 ie===ein-mindex elements
+
+    //postorder
+    
+    
+    //right he to epo-(ein-mindex) to epo-1 tak
+    //left he to spo to epo-(ein-mindex)-1
+
+
+    nnode->left=maker(postorder,inorder,spo,epo-(ein-mindex)-1,sin,mindex-1);
+    nnode->right=maker(postorder,inorder,epo-(ein-mindex),epo-1,mindex+1,ein);
+
+    return nnode;
+}
+
+
+
+    TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
+        return maker(postorder, inorder,0,postorder.size()-1,0,inorder.size()-1);
+    }
+};
