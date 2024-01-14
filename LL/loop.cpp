@@ -1,3 +1,12 @@
+//! IMP :      fast=fast->next->next;
+               base se start karo
+               
+               1.fast!=NULL 
+               2.fast->next!=NULL
+
+
+
+
        if(head==NULL || head->next==NULL || head->next->next==NULL){return false;}  //! 0 ya 1 ya 2 element me loop nahi hoga
 
         ListNode* slow=head;

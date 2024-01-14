@@ -6,6 +6,9 @@ reverse(s.begin()+1,s.end()-1); //iska meaning he ki s.begin() points at first e
 
 //! Set
 set me iterate karne ko u need an iterator
+
+//vvvvvvvvvvvIMPPPPP set me insert karo se.insert karo cause se.push is wrong 
+
 s.erase(key);
 s.clear(); to clear the entire thing
 
@@ -180,12 +183,21 @@ s.clear() will remove all the elements
 s.erase(s.begin()+0) will clear the starting element
 s.erase (s.begin+0,s.begin +2);
 
+s.insert(index,string)
+so if you want to insert a char at i 
+s.insert(i,"a");
+
 so pushback and popback dono kaam karte he jo vectors me bhi kaam karte the and these 2 stl can be used as a replacement for stack and s="" me hi kaam hojaega instead of taking an empty stack
 s.push_back('D'); -> ABCD
 s.pop_back(); -> ABC
 
 //SUBSTR VIMP
-s.substr (i,length)
+s.substr (i,length);  //! s. dalna mat bhulna s.substr
+//palindrome partitioning wale qns me kaam aata he ye waala
+s.substr(i,j-i+1) waha palindrome partitioning me use hota tha
+
+
+
 
 //!VIMP PART OF STRING
 whenever a no is given in a string "1234" s[0] ya s[1] wont work as they will give '1' and not 1
@@ -199,8 +211,13 @@ warna remember s[i]-'0' karke hi use karna s[i] is //!danger
 ya fir stoi laga lena stoi = string to integer
 
 
+
 //! HEAPS
 max heap : priority_queue<int> maxh;
 min heap : priority_queue<int,vector<int>,greater<int>> minh;   (IVG)
 
 
+
+
+//! Inverse ya fir 1 ka 0 and 0 ka 1 karna ho ya complement karna ho 
+//x^1 (1 se exor karna)

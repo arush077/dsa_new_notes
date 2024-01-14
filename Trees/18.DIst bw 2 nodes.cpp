@@ -6,22 +6,6 @@ lcs ek baar nikala to fir you will know ki yaa to both nodes are on same side of
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class Solution{
     public:
     
@@ -40,7 +24,7 @@ class Solution{
     }
     
     
-    void disbw2pts(Node *root,int dest,int count,int &cneed){
+    void disbw2pts(Node *root,int dest,int count,int &cneed){             //Samjho isse bas dist bw 2 points on the same line hi niklega!!!!!! matlab ek hi tangent without branching dono roots lie karte he to hi agar 2 diff branches par hoga to fir nahi chalwga ye distbetween2points islie lca nikalna padta he to check ki branching he ya nahi dono nodes ke beech me
         if(root==NULL){return ;}
         if(root->data==dest){cneed=count;}
         

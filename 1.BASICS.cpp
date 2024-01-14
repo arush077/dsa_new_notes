@@ -1,3 +1,17 @@
+//! Subsequence, Subset , Subarray , Substring
+
+Subsequence, Subset => discontinous
+subaaray, Substring => continuos
+
+
+
+//unordered set me pair kabhi nahi dal sakte ==== ordered set use karo pair dalneko
+
+
+
+
+
+
 //! Arrays
 merge 2 sorted arrays : 2pointer approach
 move zeroes in between of the array to the end of the array :2pointer approach i and j maintain karo and dekho jaha a[i]=0 and a[j]!=0 tab swap mardena : https://practice.geeksforgeeks.org/problems/move-all-zeroes-to-end-of-array0751/1?utm_source=geeksforgeeks&utm_medium=article_practice_tab&utm_campaign=article_practice_tab
@@ -88,6 +102,7 @@ int main(){
 
 
 //! LL 
+//always initialize the node in tree and ll wale qns.
 iterating over it is simply u need a node*temp=head and while(temp!=NULL)
 storing 1234 in LL first put 1 in node * head=new node(1); then while(n!=0){node * newnode=node(n%10);head=head->next} this head=head->next is vimp
 
@@ -96,6 +111,8 @@ storing 1234 in LL first put 1 in node * head=new node(1); then while(n!=0){node
 //! Tree
 //! IMP : ki int l and int r karke left and right heights nikalo
 
+
+//always initialize the node in tree and ll wale qns.
 
 //Maximum height
 int f(root){
@@ -162,7 +179,29 @@ void f(root){
 3.Chocolate and packet problem so that to distribute among M students max-min is min (sort karde array ko aur fir arr[0] and arr[0+M] dekh lena)
 
 
+//!MULTIPLICATION of 2 numbers
 
+
+//rattlo ye code likne me bt hogi 
+
+//make a new array of n+m size
+   23
+   54
+  -----
+
+
+[0,0,0,0]
+
+
+
+vector<int> num(num1.size() + num2.size(), 0);   //product ka max size dono numbers ke sum ke barabar hi hoga and here we store the ans into a vector rather than integer because integer par restriction aati he of 2^31-1 approx 10^9 but usse badi chiz hui to vector me store karna because vector me theoritically to infinite size store kar sakte ho
+  for (int i = num1.size() - 1; i >= 0; --i) {
+            for (int j = num2.size() - 1; j >= 0; --j) {
+                num[i + j + 1] += (num1[i] - '0') * (num2[j] - '0');  //num1 and num2 dono string me given he 
+                num[i + j] += num[i + j + 1] / 10;                    //fir carry nikalke aage wale me dalo
+                num[i + j + 1] %= 10;                                 //present space par % 10 karna to get the last digit 
+            }
+        }
 
 
 //! DP
@@ -173,6 +212,56 @@ void f(root){
 
 
 //! STRING
+
+./strings/stringconversions.drawio ye wali file pls dekhlo isme saare string conversions he 
+
+
+most imp 
+char ch='3'; //especially string ke qn me to 100% use hoga now u need 3 and not '3'
+int x= ch-'0';
+
+
+
+
+
+
+
+
+--------------------------------------------------------------
+char ch= 'a' ;
+iska matlab he ch------0 to 127 ke beech koi ek value rakhega bas those are the ascii values
+cout<<ch; ---->a
+cout<<int(ch)---> a ki asci 97
+
+-----------------------------------------------------------
+char ch=97;
+iska matlab he ch------48 ascii code ko store kiya he 
+cout<<ch ----> a
+cout<<int(ch)-->97
+
+int x=97;
+cout<<x;--------->97
+cout<<char(x)---->a
+
+so char(x) ya fir int(ch) karke type cast karlio to get the letter or the ascii number
+
+-----------------------------------------------------------
+ 
+
+
+
+
+
+
+
+
+
+
+
+string wale qns me s=abcd isme map use karna hoga to fir
+space complexity will be O(1) only because jyada se jyada keys 26 hi ho sakte he so 
+O(26)==O(1).
+so string wale qns me map use karne pe SC:O(1) hi rahegi
 
 
 stoi ==> converts string to integer
@@ -353,7 +442,7 @@ so pehle 0 ko push then call fn then pop zero (PUSH CALL POP ( PCP rule for back
 //! standard method to generate strings of length n by pcp push call pop method
 void generator(string &s,int n){
     if(n==s.length()){cout<<s<<endl;return ;}
-    s.push_back('0');
+     
     generator(s,n);
     s.pop_back();
     s.push_back('1');
@@ -395,6 +484,18 @@ selection O(n^2)
 insertion O(n^2)
 bubble O(n^2)
 maerge sort O(nlogn)
+
+
+bubble ka code 
+for(int r=0;r<n;r++){
+    for(int i=0;i<n-r-1;i++){                             //yaad rakna n-r-1
+        if(arr[i]>arr[i+1]){swap(arr[i],arr[i+1]);}
+    }
+}
+
+
+
+
 
 merge 2 sorted arrays ->use 2 pointer and a new vector array to store the answer2
 
@@ -447,6 +548,35 @@ set: 1 2
 
 search if 3-3 dne in set so push in set and move ahead 
 set: 1 2 3 
+
+
+
+//! Target sum Pair =k given that array is sorted
+//sorted array me pair sum aaya to fir use 2 pointer ka concept
+
+sum=3
+
+
+ l         r
+[0,1,2,3,4,5]
+
+0+5 > 3 //so sum ko chota karna he to only one possible way move right pointer to the left r--;
+
+ l       r
+[0,1,2,3,4,5]
+0+4 > 3 //so sum ko chota karna he
+
+ l     r
+[0,1,2,3,4,5]
+0+3 =3 //so mil gaya  so now l++ and r-- dono karna hoga
+
+   l r
+[0,1,2,3,4,5]
+1+2=3 //mil gaya so l++ r--
+
+   r l
+[0,1,2,3,4,5]  //stp now
+
 
 
 //! Target difference
@@ -607,6 +737,14 @@ bool subarraySumToK(int n, int k, vector<int> &arr) {
 same code sirf set ke badle map use karlena and that map will have index,presum 
 index because size of subbarray chahiye 
 presum because subarray of sum=k chahiye (subarray/substring/subsequence + sum=k 100% presum + map ya fir sliding window)
+
+
+
+//! imp chiz he ki m.find(key) isko to auto itr me daldoge
+//! but now to access it you need to do itr->first and itr->second
+
+
+
 
 so if(presum==k){size=i+1;}
     else if (m.find()....){
@@ -852,6 +990,21 @@ zero flipping
 Nice subarray
 
 
+
+
+//! ERRORS
+
+//runtime errors cout karke debug kardo 
+dp walo me to 
+f(i){
+cout<<"upar"<<i<<endl;
+
+fn calls
+
+cout<<"niche"<<i<<endl;
+
+
+}
 
 
 

@@ -25,10 +25,16 @@ https://practice.geeksforgeeks.org/problems/painting-the-fence3727/1
 
 //! MODULO CONCEPT
 return ans as a modulo of 10^9 + 7
+matlab saare operations ke lie hi ab function call karna hi hoga + - * / sabka function banana padega ab to
+
 
 #define MOD 1000000007
 int add(int a,int b){
     return ( a%MOD  +  b%MOD   )%MOD;
+}
+
+int subtract(int a,int b){
+    return (MOD + a%MOD - b%MOD)%MOD;    //andar ek mod add bhi karte he just in case negative ho gaya to bacha lega
 }
 
 int multiply(int a,int b){

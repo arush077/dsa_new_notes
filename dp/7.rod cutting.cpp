@@ -4,6 +4,10 @@ https://www.codingninjas.com/studio/problems/rod-cutting-problem_800284?utm_sour
 //! jab ek element bachra ho to dekho ki us ek element ko bohot baar leke kuch kar sakte ho kya 
 //!(N%i==0) matlab bohot baar le sakte ho and N/i baar le sakte ho
 
+//! IMP CONCEPT YE HE KI UNBOUNDED KE 
+
+//!TAKE ME I HI HOTA HE LEKIN
+//!NOT TAKE ME I+1 HOGA
 
 //! DONT GET CONFUSED YAHA 1 BASED INDEXING KE PERSPECTIVE SE KIYA HE 
 

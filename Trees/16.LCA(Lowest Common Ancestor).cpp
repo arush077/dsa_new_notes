@@ -76,10 +76,6 @@ so 1 is also the common ancestor but 3 is the lowest common ancestor
         if(right==NULL){return left;}
         return root;
 
-
-
-
-
     }
 
 
