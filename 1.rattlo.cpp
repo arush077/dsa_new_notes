@@ -11,8 +11,9 @@ If n > 10^8, the time complexity can be O(log n) or O(1).
 int ka range= [  (-2^n-1) , (2^n-1  - 1) ] ==== approx 10^9 tak allow karta he 
 only positive hota to [0 , 2^n -1]
 
-//!remember int--------10^9
+//!remember int--------10^9    (so INT_MAX goes upto 1e9+7)
  //!        long-------10^18   approx itna allow karta he 
+ 
 
 
 
@@ -115,3 +116,9 @@ void perms(int i,vector <int> &arr,int &count){
     }
     
 //! jabtak ek ek tukde me tutega nahi tabtak merge nahi karna 
+
+
+5. SUBBARAYS 
+
+//sum of subarrays=k (nooo sliding window simply x-y=k so find if k-x exists in the set)            //where x and y are prefix sum from the start to any 2 random points on the array and not 2 array elements rather sum upto those points
+//count of subarray=k (again no sliding windows x-y=k so u need a map now to store indexes also)

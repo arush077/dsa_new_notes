@@ -1,3 +1,15 @@
+//! ye yaad rakna ki peak wale qn me mid ke saath s aur e ka comparisn nahi hota balki mid+1 aur mid-1 ka comparisn karte he    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     int bs(vector<int>& arr){
         int n=arr.size();
         int s=1;

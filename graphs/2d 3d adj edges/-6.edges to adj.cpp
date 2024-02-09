@@ -1,3 +1,50 @@
+// ! very important ye hi ki adjacency list ki size define karo pehle to atleast ek size 
+vector<vector<pair<int,int>>> adj  -----> segmentation fault dega
+vector<vector<pair<int,int>>> adj(V) ---> koi bt nahi dega
+
+
+
+
+//! stupid gfg qns : test case me hi input ka format chupate he 
+
+
+TEST CASE
+N=3
+M=2
+edges[][]={{1,2},{3,2}}
+src=1
+dst=3
+
+
+INPUT:
+3 2
+1 2
+3 2
+1
+3
+
+
+3 2---->N M
+1 2---->edge
+3 2---->edge
+1  ---->src
+3  ---->dst
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //! Weightless wala
 edges[]={{1,2},{3,1}}; //! matlab 1--2 and 3--1 so 3--1--2 is the graph
 adj[]={{},{2,3},{1},{1}}; 
@@ -26,7 +73,7 @@ adj[]={{{}},{{2,10},{3,6}},{{1,10}},{{1,6}}};      //! adj has to be 3d vector w
 
 //! MOST IMP IS KI (((2Dvector + pair<int,int> ))) hoga adj list me
 
-vector<vector<pair<int,int>>> adj OR vector<pair<int,int>> adj[N];
+vector<vector<pair<int,int>>> adj(V) OR vector<pair<int,int>> adj[V];
 
 for(int i=0;i<edges.size();i++){
     int f=edges[i][0];

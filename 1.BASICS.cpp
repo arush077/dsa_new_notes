@@ -213,7 +213,7 @@ vector<int> num(num1.size() + num2.size(), 0);   //product ka max size dono numb
 
 //! STRING
 
-./strings/stringconversions.drawio ye wali file pls dekhlo isme saare string conversions he 
+./strings/stringconversions.drawio ye wali file pls dekhlo isme saare string conversions he ck
 
 
 most imp 
@@ -246,7 +246,161 @@ cout<<char(x)---->a
 so char(x) ya fir int(ch) karke type cast karlio to get the letter or the ascii number
 
 -----------------------------------------------------------
- 
+
+
+
+queue vs stack
+
+queue me niche se popping hoti he
+stack me upar se popping hoti he 
+
+
+pushing remains the same b/w the two
+aur islie q.front() hota he kyuki sabse niche wala is the front wala and stack me s.top() hota he as sabse top wala upar wala hota he 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------
+ //!recursion imp qns
+
+ //!IBH method me wherever u make the call maanlo usne pop karne ke baad aage ka pura solve karke wapas kardiya ab aage ke steps karo
+
+
+ reverse a stack using rec
+ rev a queue using rec
+ sort a stack using rec
+//non dp recursion ke qns he usko ibh try karo
+//aur ek chiz stack and queue me bas popping ka difference hota he pushing mechanism is same
+//dono me upar se push hoga but popping queue me niche se and stack me upar se hoga
+
+
+
+
+eg : reverse a stack using rec
+//visualize it vertically pls
+
+// stack : 1 2 3 4 5 
+
+
+//step1: pop :  stack : 1 2 3 4    temp=5
+
+
+//step2: call : rev(stack)------------>
+//                        <------------
+
+//              stack: 4 3 2 1     temp=5
+
+//step3: ab is temp ka kya karo u need to insert this at the bottom but bottom me dalneko u will have to call another funtion bottom
+
+
+///    stack: 4 3 2 1    x=5
+//now write the bottom function
+
+// step1: pop stack:4 3 2   x=5  temp=1 
+// step2: call bottom(stack,temp)------------>
+//                                <------------
+//step3: stack : 5 4 3 2      temp=1
+//step4: shit is done 5 ko niche daba diya he ab bas temp ko puch karo
+//stack : 5 4 3 2 1      
+
+
+//code
+
+bottom(stack<int>st,x){
+if(st.size()==0){st.push_back(x);return ;}           //dont forget that return in void functions 
+int temp=st.top();
+st.pop();
+bottom(st,x);
+st.push(temp);
+}
+
+reverse(stack<int>st){
+if(st.size()==1){return ;}
+int temp=st.top();
+st.pop();
+reverse(st);
+bottom(st,temp)
+}
+
+--------------------------------------------------------------------------------------
+
+//reverse a queue(V easy)
+
+queue= 1 2 3 4 5
+
+
+//step1: pop :  queue : 2 3 4 5    temp=1   (queue me niche se popping)
+
+
+//step2: call : rev(queue)------------>
+//                        <------------
+
+//              queue : 5 4 3 2     temp=1
+
+//step3: ab isme temp ko upar hi push karna he unlike stack wala case jaha bottom me push karna tha
+             
+//               queue : 5 4 3 2 1     temp=1   
+
+//code
+
+reverse(stack<int>q){
+if(q.size()==1){return ;}
+int temp=st.top();
+q.pop();
+reverse(st);
+q.push(temp);
+}
+------------------------------------------------------------------------------------------------
+
+
+//merge intervals
+
+
+//simply bas ans.back()[1] par nazar rakho 
+//ek if and ek else condition dalo ek normal for loop ke andar
+
+
+
+
+       vector<vector<int>> ans;
+        sort(intervals.begin(),intervals.end());
+
+        for(int i=0;i<intervals.size();i++){
+
+
+            if(ans.size()==0 || ans[ans.size()-1][1]<intervals[i][0] ){                                         //remember pushing tabhi hogi when ans empty ho ya fir ans ka first index bada ho
+                //pushing hogi
+                ans.push_back(intervals[i]);
+            }
+
+            else{
+                //no pushing only merging at second index of last element of ans                                //else me bas ans ke first index ko maximize karna he
+                ans[ans.size()-1][1]=max(ans[ans.size()-1][1],intervals[i][1]);
+            }
+
+
+        }
+
+        return ans;
+
+
+
+
+//easy notation
+ans[ans.size()]=======ans.back()
+
+ans[ans.size()-1][1] =====ans.back()[1]
 
 
 
@@ -764,6 +918,31 @@ so if(presum==k){size=i+1;}
 
 
 //! MAP
+
+
+//ordered map ie map only me agar first element chahiye to 
+mp.begin() === ye ek itr hoga to isme ->first and ->second karke access karna
+auto itr=mp.end()   ye likhke itr->first and itr->second se access karneka
+
+
+//ese -> hi karke aur ek chiz me hota he 
+jab koi bhi map me find karte he 
+auto itr=m.find(s[i]);
+itr->first
+itr->second
+
+
+//looping me dot use karte he 
+for(auto itr:m){
+    itr.first
+    itr.second
+}
+
+
+
+
+
+
 
 maximum 2 elements freq :
 //! One method ye he ki do baar for loop lagado

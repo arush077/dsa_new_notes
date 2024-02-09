@@ -8,6 +8,58 @@ nottake=f(i-1,) + 0;
 return max(take,nottake);
 
 
+
+
+//! yaad hi karlo dp ka basic matlab base case ke niche condition dalkar multiple options me se return min option
+
+
+RR:
+
+max sum                      :          take=f(i)+arr[i] nt=f(i)  return max(t,nt)
+max no of elements           :          take=f(i)+1      nt=f(i)  return max(t,nt)
+max no of ways/possible path :          take=f(i)        nt=f(i)  return t+nt          base case me 1 dalna if you wanna take the path
+
+
+f(i){
+    if(i==n){return 0;}   //BC
+
+    if(cond1){
+        op1=f(i)+something;
+        op2=f(i)+something;
+        return min(op1,op2);
+    }
+
+    else{
+        op3=f(i)+something;
+        op4=f(i)+something;
+        return min(op3,op4);
+    }
+}
+
+
+
+
+
+//! Boolean me ek bhi sahi ho to true kardena yaar
+bool f(i){
+    if(condn){}
+
+
+    bool op1=false;bool op2=false;
+
+    if(condn1){op1=}
+    if(condn2){op2=}
+
+    return op1 || op2 ;
+
+
+}
+
+
+
+
+
+
 //! Max no of elements
 
 if(i<0){return 0;}
@@ -17,6 +69,9 @@ int take=-1e9;
 take=f(i-1,) + 1;
 nottake=f(i-1,) + 0;
 return max(take,nottake);
+
+
+
 
 //! Max no of paths (VIMP : take me +1 mat karna as ek path ka +1 BC hi provide kardeta he uss path ke har element pe jaake +1 karne ki koi need nahi he, so better he ki l aur r hi rakho taaki tum take me 1+ naa karo and l+r return kardena)
 if(i<0){

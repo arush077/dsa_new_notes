@@ -60,7 +60,33 @@ typedef int p
 typedef me hash nahi aaata
 and public ke andar and fn ke bahar define kario
 and define karte ho tabhi hashtag aata he 
+
+
+
+
+
+
+// WEIRDOS : typdef and define
+
+
+
 #define mod 1003
+#define MOD 1e9+7 //nahi chalega
+#define MOD 1000000007 //ye ese kholke hi likne hoga as define ko "e" samaj nahi aati + define me hashtag honi chahiye
+
+
+typdef int x    //isme hash nahi aati typdef int x yaad rakho "this is used for type aka datatype ko chota naam dene ko"
+
+
+
+
+------------------------------------------------------
+
+
+
+
+
+
 
 
 normal sort an array = sort(arr.begin(),arr.end());
@@ -162,6 +188,27 @@ int main()
     
 
 }
+
+
+
+
+//4.sorting a 2d vector
+
+vector<vector<int>> arr;
+
+//lets says 2nd element ke basis par karni he sorting
+//[[1,2],[3,0]]
+//[[3,0],[1,2]]
+
+//so andar ki chiz dekho vector ki andar ki vector<int> he so matlab jo main vector he uske ek box ke andar jo he wo dekho to har ek box ke andar to ek vector he 
+
+bool cmp(vector<int> a,vector<int>b){
+if(b[1]>a[1]){return true;}
+else{return false;}
+}
+
+
+
 
 //! STRING
 

@@ -1,3 +1,10 @@
+//!single src se all the nodes tak ka min distance
+//! visited array ke badle distance array jisme saare inf se initialized ho
+//! use priority queue
+//! if(d[u]+w(u,v)<d[v]){d[v]=d(u)+d(u,v)}
+//! Djkastra algo is not suitable for negative edges
+
+
 //!Djkastra use priority queue ya fir minheap
 
 //! USE CASE : single src se all the nodes tak ka minimum ditance nikalo
@@ -36,8 +43,8 @@ while(!minh.empty()){
         int adjnode=itr[0];
         int adjdist=itr[1];
 
-        if(d[adjnode]>dist+adjdist){
-            d[adjnode]=dist+adjdist;
+        if(d[adjnode]>dist+d[node]){
+            d[adjnode]>dist+d[node]
             minh.push({d[adjnode],adjnode});
         }
 
