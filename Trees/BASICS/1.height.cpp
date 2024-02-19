@@ -92,3 +92,26 @@ v.pop_back();
 }
 
 //when u enter a node put it in array and then call for left and right and while leaving the node pop it from array
+
+//! BALANCED BINARY TREE
+//difference of heights b/w the right and the left subtree>=1 for all nodes then return true
+
+//simple he just modify the height ka function : start me ek ans=true naam ka variable send karna aur jaha bhi bt ho iss variable ko false mar dena
+
+    int height(TreeNode* root,bool &ans){
+        if(root==NULL){return 0;}
+
+        else{
+            int left=height(root->left,ans);
+            int right=height(root->right,ans);
+            
+      //-------------extra chunk---------------------------------      
+            if(abs(left-right)>1){                                
+                ans=false;                                       
+            }                                                      
+    //------------------------------------------------------------
+
+            return 1+max(left,right);
+        }
+    }
+

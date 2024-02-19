@@ -1,3 +1,50 @@
+//! hcf/gcd and lcm
+
+for hcf(a,b)
+
+a aur b ka min lena and fir waha se piche ki taraf iterate karna till 1 because the least it could be is 1
+int x=min(a,b);
+
+//ek base condition bhi dalna if(a ya b me se koi ek zero hua){to dusra wala answer hojaega}
+for(int i=x;i>=1;i++){
+    if(a%i==0 && b%i==0){return i;}
+}
+
+
+//recursive code for hcf
+int f(int a,int b){
+if(b==0){return a;}
+else{return f(b,a%b);}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //! Subsequence, Subset , Subarray , Substring
 
 Subsequence, Subset => discontinous
@@ -214,6 +261,35 @@ vector<int> num(num1.size() + num2.size(), 0);   //product ka max size dono numb
 //! STRING
 
 ./strings/stringconversions.drawio ye wali file pls dekhlo isme saare string conversions he ck
+
+
+
+//!VVVVIMP
+
+ch--->int     ch-'0'
+int--->ch     ch+'0'
+
+"0000" -> "0010"
+   |
+   i
+
+s[i]=s[i]+1; //ye bohot bt dega esa karoge to 
+//better method
+
+s[i]= (int me convert karke calculations perform) then convert this shit back to char
+s[i]= ( (s[i]-'0') + 1 ) -'0'
+      ------------------
+               |         -----
+               |           |
+              int         int ko char me karne ko -'0' kardiya 
+
+
+
+
+
+
+
+
 
 
 most imp 
@@ -1190,7 +1266,15 @@ cout<<"niche"<<i<<endl;
 
 
 
+//! Linked List
 
+//loop detection ke lie floyd algo lagao of slow and fast pointer
+//loop removal ke lie just use a visited set
+ //1--->2--->3--->5
+ //     |         |
+ //     |         |
+ //     |_________|
 
-
-
+//to jese 1 par aaye ho to check if 1 is in the set : no , so push it in set
+//wese hi 2 ko bhi push karo 3 ko bhi and 5 ko bhi set me dalo
+//now when temp moves back to 2, 2 to already visited he and prev_node=5 so connect this prev_node to NULL
