@@ -19,7 +19,7 @@ f(node){
 
 
 
-//! Remember this concept as node par aakar msti method jab node pe aake reference variables ki lete ho
+//! Remember this concept as node par aakar runsum method jab node pe aake reference variables ki lete ho
 
 
 
@@ -37,7 +37,6 @@ void inorder(Node* root,int &sum,int count,int &maxisum,int &maxicount){
     }
     sum+=root->data;                                                    //!this is not a recursion variable so its passed be ref and also while backtracking u need to handle it properly
     inorder(root->left,sum,count+1,maxisum,maxicount);
-    // cout<<root->data<<" "<<sum<<" "<<count<<endl;
     inorder(root->right,sum,count+1,maxisum,maxicount);
     sum-=root->data;                                                     //! while going back u need to get back the sum of that node back so need to subtract it
 }

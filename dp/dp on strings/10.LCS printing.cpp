@@ -1,5 +1,24 @@
 https://www.codingninjas.com/studio/problems/print-longest-common-subsequence_8416383?utm_source=striver&utm_medium=website&utm_campaign=a_zcoursetuf&leftPanelTab=1
 
+//! Wese to LCS print karna hota he tab
+1. lcs ka code likhke pehle uska n+1 * m+1 ka dp table bharo  jisme
+   0 to n and 0 to m size ka dp table hota he 
+
+2. abhi bas ek while loop lagana bottom right se and while ( i>0 && j>0 ) tak jaana simply and lcs me jab jab equal elements aaye to s + dp[i][j] karna where s is initially and empty string ""
+   if(s[i-1]==t[j-1]) he to move i-- j-- diagonal
+   else (s[i-1] > t[j-1] ) he to move i-- j doesnt move 
+   else                    he to move j-- i doesnt move
+
+
+
+!!!//! NICHE WALE CODE ME BT HE
+
+
+
+
+
+
+
 //!RECURSION
 string printer(int i,int j,string s1,string s2){                                            //! AVOID Variable str="" passing and filling it along the way
 	if(i<0 || j<0){return "";}                                                              //! usko fir memoize nahi kar paoge

@@ -3,13 +3,17 @@ reverse(s.begin(),s.end());
 reverse only the selected part of an array
 reverse(s.begin()+1,s.end()-1); //iska meaning he ki s.begin() points at first element and s.end() points at last element so s.begin()+1 will point at second element of array and s.end()-1 will point at 2nd last element
 
+return {}  karne pe empty array return hojata he 
+
 
 //! Set
 set me iterate karne ko u need an iterator
 
-//vvvvvvvvvvvIMPPPPP set me insert karo se.insert karo cause se.push is wrong 
+//vvvvvvvvvvvIMPPPPP set me insert karo se.insert karo cause se.push is wrong ce ce ce ce clear and erase
 
-s.erase(key);
+ 
+s.insert(1)     //map aur set dono me insert hi karna hota he
+s.erase(key);  //s.erase(itr) to bhi chalega ye maanlo auto itr=s.find(key) karke nikala ho toh
 s.clear(); to clear the entire thing
 
 for(auto itr: s){
@@ -17,6 +21,9 @@ for(auto itr: s){
 
 //! Map
 find kardiya to uss element ko access kese kare ?
+
+
+m.insert({1,2})      //map aur set dono me insert hi karna hota he
 
 m.erase (key) to remove that shit
 
@@ -239,7 +246,7 @@ s.push_back('D'); -> ABCD
 s.pop_back(); -> ABC
 
 //SUBSTR VIMP
-s.substr (i,length);  //! s. dalna mat bhulna s.substr
+s.substr (i,length);  //! s. dalna mat bhulna s.substr(i,l)
 //palindrome partitioning wale qns me kaam aata he ye waala
 s.substr(i,j-i+1) waha palindrome partitioning me use hota tha
 

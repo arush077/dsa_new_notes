@@ -21,30 +21,6 @@ else{return f(b,a%b);}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //! Subsequence, Subset , Subarray , Substring
 
 Subsequence, Subset => discontinous
@@ -256,7 +232,7 @@ vector<int> num(num1.size() + num2.size(), 0);   //product ka max size dono numb
 2.LCSubst AND LCSubseq KA code same hi hota he sirf LCSubstr me else wale condn me 0 daalna hoga and pure 2d matrix ka maxm element batana hoga
 3.min insertion deletion palindrome ye sab LCS se ho jaega
 
-
+//!----------------------------------------------------------------------------------------------------------------------
 
 //! STRING
 
@@ -277,7 +253,7 @@ s[i]=s[i]+1; //ye bohot bt dega esa karoge to
 //better method
 
 s[i]= (int me convert karke calculations perform) then convert this shit back to char
-s[i]= ( (s[i]-'0') + 1 ) -'0'
+s[i]= ( (s[i]-'0') + 1 ) + '0'
       ------------------
                |         -----
                |           |
@@ -285,7 +261,25 @@ s[i]= ( (s[i]-'0') + 1 ) -'0'
 
 
 
+------------------------------------------------------------------------------WHY NOT TYPECASTING
 
+char ---------> int (ASCII / VISUAL)
+'9'  ---------> ASCI =32 / VISUAL =9
+
+to get in ASCII u need to type cast it
+(int)ch
+
+to get in visual u need to -'0'
+ch-'0'
+
+
+1  ------>'1'   to 1 + '0'
+'1'------> 1    to '1'-'0'
+
+'a'------>0     to 'a'-'a'
+ 0------->'a'   to 0 + 'a'
+
+ 
 
 
 
@@ -304,6 +298,36 @@ int x= ch-'0';
 
 
 --------------------------------------------------------------
+
+concept
+
+char ---------> int (ASCII / VISUAL)
+'9'  ---------> ASCI =32 / VISUAL =9
+
+to get in ASCII u need to type cast it
+(int)ch
+
+to get in visual u need to -'0'
+ch-'0'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 char ch= 'a' ;
 iska matlab he ch------0 to 127 ke beech koi ek value rakhega bas those are the ascii values
 cout<<ch; ---->a
@@ -494,7 +518,7 @@ O(26)==O(1).
 so string wale qns me map use karne pe SC:O(1) hi rahegi
 
 
-stoi ==> converts string to integer
+stoi ==> converts string to integer   //! ALWAYS use stoi with if(s.length()){int x=stoi(s)} becuz exception throw karega is s is empty
 int x=stoi(s1);
 
 
@@ -560,6 +584,10 @@ abaaxa
 a=> 0,2,3,5
 so a occurs on these indexes so unordered map <char,vector<int>> m;
 m[str[i]].push_back(i);
+
+
+
+//!------------------------------------------------------------------STRINGS-------------------------------------------------------
 
 
 
@@ -637,7 +665,7 @@ recursion(0,i,op);
 
 //! Generate all permutations of a string
 void f(int i,string &s){
-    if(i==n-1){cout<<s;}   //BC
+    if(i==n-1){cout<<s; return ;}   //BC  //!VIMP : BASE CASE ME "RETURN ;" bhi dalne ki aadat daalo 
     
     for(int j=i;i<n;i++){
         temp=s;                         //agar temp string nahi use karoge to fir ABC then A->A so ABC then A->B BAC then abhi BAC will be used but we wanted ABC me A->C but here we have a BAC instead which we dont want this ye bt islie aarahi he because you are passing it by reference so next stage wale ke answer/string value previous stages me bhi jud jaaenge
@@ -671,7 +699,7 @@ so pehle 0 ko push then call fn then pop zero (PUSH CALL POP ( PCP rule for back
 
 //! standard method to generate strings of length n by pcp push call pop method
 void generator(string &s,int n){
-    if(n==s.length()){cout<<s<<endl;return ;}
+    if(n==s.length()){cout<<s<<endl;return ;}   //RETURN ; dalna is VIMP
      
     generator(s,n);
     s.pop_back();
@@ -1278,3 +1306,56 @@ cout<<"niche"<<i<<endl;
 //to jese 1 par aaye ho to check if 1 is in the set : no , so push it in set
 //wese hi 2 ko bhi push karo 3 ko bhi and 5 ko bhi set me dalo
 //now when temp moves back to 2, 2 to already visited he and prev_node=5 so connect this prev_node to NULL
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------
+prefix postfix and infix 
+
+
+
+
+postfix  eg : 7982*-/
+prefix   eg : *-/7982
+infix    eg : ((7*9) - 8) /2
+
+
+//simple he postfix me left se right ki taraf iterate
+//prefix me right se left ki tarah iterate
+//number he to push karo stack me
+//operator he to no1 and no2 nikalo from top of stack no1 operator no2 ke result ko wapas dalo stack me
+
+        stack <int> st;
+        for(int i=0;i<tokens.size();i++){
+            string s = tokens[i];
+
+            //stoi use karne se pehle andar dekho uske hamesha ek valid guy hi hona chahiye warna what():stoi ka error dega
+
+            if( s!="+" && s!="-" && s!="*" && s!="/" ){
+            int y=stoi(s);
+            
+            if(y>=0 && y <=9){
+                //number he to push in the stack 
+                st.push( y );
+            }
+            }
+            else{
+                //operator aaya he 
+                int no2= st.top();
+                st.pop();
+                int no1 = st.top();
+                st.pop();
+
+                int x= 1;
+                if(tokens[i]=="+"){x=no1+no2;}
+                if(tokens[i]=="-"){x=no1-no2;}
+                if(tokens[i]=="*"){x=no1*no2;}
+                if(tokens[i]=="/"){x=no1/no2;}
+                st.push(x);
+            }
+        }
+
+        return st.top();
+

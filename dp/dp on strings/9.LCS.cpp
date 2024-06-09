@@ -2,6 +2,9 @@ https://leetcode.com/problems/longest-common-subsequence/description/
    
 //! LCS KA TABULATED RATT LOO PLSSSS
 LCS(LONGEST COMMON SUBSEQUENCE)   
+// longest
+// common
+// subseq
 
 //!LCS APPLICATION
 1.Jabhi 2 strings given honge to 
@@ -24,7 +27,7 @@ LCS(LONGEST COMMON SUBSEQUENCE)
     
 
     //! TABULATED
-       
+    //! iske bhi niche ek he jo isse bhi better he    
 
     vector <vector <int>> dp(s1.length()+1,vector <int>(s2.length()+1,0));     //!n+1 and m+1 size ka banana
     for(int i=1;i<=s1.length();i++){
@@ -37,3 +40,29 @@ LCS(LONGEST COMMON SUBSEQUENCE)
     return (s1.length()-dp[s1.length()][s2.length()]);                        //!dp[n][m] return karna as size n+1 and m+1 ka banae ho to maxm index n aur m hi honge               
 
     }
+
+
+    ///isse better wala bc
+
+       vector< vector <int> > dp ( n+1 , vector <int> (m+1, 0) );            //!n+1 and m+1 size ka banana
+
+        for(int i=n-1 ;i>=0;i--){                                            //! BACKWARD AANA DONO ME to fir dp[i][j] = dp [i+1][j+1] types hoga
+            for(int j=m-1;j>=0;j--){
+
+        if( text1[i] == text2[j] ){
+            dp[i][j]=1 + dp[i+1][j+1];                                       
+        }
+
+        else{
+            //both text1 and text2 are not equal
+            int a = dp[i+1][j];
+            int b = dp[i][j+1];
+
+             dp[i][j]=max(a,b);
+
+        }
+            }
+        }
+
+
+        return dp[0][0];

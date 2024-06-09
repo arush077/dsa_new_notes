@@ -1,3 +1,68 @@
+//! TOP DOWN AND BOTTOM UP
+
+
+//!recursion
+f(i){
+    if(i==n){return 1;}
+
+    int take= 1+f(i+1);
+    int nottake = f(i+1);
+    return max(take,nottake);
+    }
+
+
+//!top down
+
+// dp size i== (0 to n)
+//but memoization me we exclude the base case so //i== (0 to n-1) so 'n' size ka vector banao and initialize all element to '-1'
+
+f(i,dp){
+    if(i==n){return 1;}
+
+  //if(dp[i]!=-1){return dp[i];}
+
+    int take= 1+f(i+1,dp);
+    int nottake = f(i+1,dp);
+
+// return dp[i]=max(take,nottake);
+
+}
+
+
+
+//! bottom up
+// dp size i== (0 to n)
+//but bottom up me we include the base case so //i== (0 to n) so 'n+1' size ka vector banao and initialize all elements to '0'
+
+int main(){
+
+    //base case fill karao v[n]=1;
+
+    //for(int i=n-1;i>=0;i--){
+
+        //copy paste kardo pura code bas f(i+1) ke badle dp[i+1] kardena and return dp[i]=max(take,nottake) wale me bas "return" ko hata dena
+
+    }
+
+    return dp[0];    //dp[final iterations ke baad jaha rukhe wo]
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //! Max sum
 
 if(i<0){sum=0;}
@@ -58,7 +123,7 @@ bool f(i){
 
 
 
-
+------------------------------------------------------------
 
 //! Max no of elements
 
@@ -83,6 +148,8 @@ take=f(i-1,) + 0;
 nottake=f(i-1,) + 0;
 return take + nottake;
 
+
+------------------------------------------------------
 
 //! Unbounded
 if(i==0){
@@ -111,3 +178,80 @@ return max(take,nottake)
  
  and agar f(i-1) he to dp[i-1] matlab i=0 pe dp[-1] point karri hogi 
  so shifting of indexes lagani hogi
+
+
+
+
+
+
+
+-------------------------------------------------------
+//! BACKTRACKING
+
+
+
+ //! JABHI tumhe array return karne bole ya string return karne bole ek dp ke qn me to 100% BHAIYA WO BACKTRACKING KA QN HE (to isme void function banana hota he)
+ https://leetcode.com/problems/combination-sum/ 
+
+ void f(){
+
+    if(){ans.push_back(v)}       //base case
+
+
+    v.push_back()
+    f(i+1,)                     //take ka call
+    v.pop_back()
+
+
+
+    f(i+1,)                     //nottake ka call
+
+
+
+    //yaha pe return take + nottake wagera kuch nahi hota like dp lolllll bas itna hi chod do 
+    //bas hogaya ab itna hi khaali chod de ab isko
+
+
+ }
+
+
+
+//! VIMP for backtracking
+// whenever u use a 1d vector and then final base case hit hone pe 1d vector ka saaman 2d vector me dalte ho toh
+
+void f( vector<int>&temp , vector<vector<int>>&dp ){
+//!ye galat he
+}
+
+void f( vector<int>temp , vector<vector<int>>&dp ){
+//!ye sahi he
+}
+
+
+//this is safe as kabhi temp.clear() karna ho to saare states ka temp clear ho jaega to kaika backtrack karoge fir jab pura data udd gaya so for safe side keep 1d vector as state variable and 2d vector as reference variable
+--------------------------------------------------------------------------------------------------
+
+
+
+// sometimes generator function me bhi dp lagani pad sakti he but void se int me aajana fir
+// jab take nottake pe condition nahi but final string must be divisible by 25 ye final string must be a palindrome jesa kuch ho
+//bas ek final condition ho jisse i==n wale bc me handle kare true he to return 0 warna ditch the entire route
+
+int generator(int i,string &s){
+    if(i==n){
+        if(check final case ki s kesa hona chahiye){return 0;}
+        return ditching_case                                          //matlab return -1e9 for maximum dp problem and +1e9 for minimum dp problem
+
+    }
+
+    s=s + '(';
+    int do = 1 + generator(i+1,s);
+    s.pop_back();
+
+    
+    int dont_do = 0 + generator(i+1,s);
+    
+
+    return min( do , dont_do )
+}
+

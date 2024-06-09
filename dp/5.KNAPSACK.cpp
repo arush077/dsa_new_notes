@@ -73,3 +73,9 @@ f(i,W, &dp){
 
     return dp[n-1][MW];
 }
+
+
+
+
+
+//! UNBOUNDED KNAPSACK : ISME BAS YAHI YAAD RAKNA KI TAKE KARNE KE BAAD BHI YE MOVE ON NAHI KAREGA I ---> I hi rahega even after taking

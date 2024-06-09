@@ -19,3 +19,10 @@ f(i,j){
 
 //! DP ka hi concept
 //! recursion me usually 2^m ya kuch lag jaata he TC but memoization me TC : (variable1 * variable2 * variable 3 ) ka lagega
+
+PROBLEMS
+
+1. src to destination.........................     (can travel down and right)
+2. src to destination with obstacle............    (can travel down and right)
+3. maximum sum
+4. minimum no of steps ==== bfs

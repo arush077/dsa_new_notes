@@ -3,6 +3,13 @@
 
 // fixed size=k
 
+//! VIMP ki j++ sab cases me hi hoga isilie to fir koi koi log for loop laga dete he cause independent of the case j ko to hamesha hi aage badhana he lol wtf ratle ki j++ harbar hoga
+
+
+
+
+
+
 while(i<n && j<n){
     sum+=arr[j];
 
@@ -45,8 +52,8 @@ while(i<n && j<n){
         }
 
 
-        //while ke andar i++ and negative cases hatao and while ke bahar j++
-        j++;
+        // //while ke andar i++ and negative cases hatao and while ke bahar j++
+        // j++;
     }
 
 

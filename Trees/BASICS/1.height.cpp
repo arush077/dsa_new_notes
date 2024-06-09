@@ -115,3 +115,26 @@ v.pop_back();
         }
     }
 
+
+
+//! CREATION OF A BINARY TREE FROM A GIVEN ARRAY
+//yaad rakho ki [1,2,3,4,5] take 2 pointers taaki left and right calls ke lie arrays ko sahi se splitup kar paao
+    [1,2,3,4,5]
+     i       j
+
+// VIMP : ab pure time ese maanke chalo ki 0 aur n-1 ends nahi balki i and j are the ends of the matrix
+
+f( i , j , arr){
+
+if(i==j){
+    make node having value arr[i]
+    return node;
+}
+
+//make root node lets say root node occurs at x
+//root->left = f(i, x-1 );                          //yaha pe check karo kabhi kabar out of bounds jaa sakte he ye indexes but here bounds will be (i,j) lol
+//root-> right = f( x+1 , j);
+//return root
+
+
+}

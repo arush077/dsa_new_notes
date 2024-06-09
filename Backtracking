@@ -1,9 +1,0 @@
-when u pass shit by reference u need to make sure u clear that shit before returning back or before the end of the function
-
-f(node,int &sum){
-    if(!node){return ;}      //! DONOT FORGET TO RETURN INSIDE THE BASE CASE
-    sum+=root->val;          //!
-    f(node->left,sum);
-    f(node->right,sum);
-    sum-=root->val;          //!
-}
