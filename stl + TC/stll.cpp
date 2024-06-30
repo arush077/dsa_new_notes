@@ -19,6 +19,11 @@ s.clear(); to clear the entire thing
 for(auto itr: s){
     cout<<itr; }
 
+
+unordered set me vector pass nahi hota he but //! set<vector<int>> s chal jaata he for some reason
+
+
+
 //! Map
 find kardiya to uss element ko access kese kare ?
 
@@ -76,9 +81,10 @@ and define karte ho tabhi hashtag aata he
 // WEIRDOS : typdef and define
 
 
+//! better yahi he ki dont use define and typedef isse badhiya int x= 1e9+7 likhde bc saara problem hi khatam
 
 #define mod 1003
-#define MOD 1e9+7 //nahi chalega
+#define MOD 1e9+7 //!!!nahi chalega (aur ye saare class ke bahar sabse first line aana chahiye and ese shortcut not allowd)
 #define MOD 1000000007 //ye ese kholke hi likne hoga as define ko "e" samaj nahi aati + define me hashtag honi chahiye
 
 
@@ -123,6 +129,16 @@ for(Node* n :v){cout<<n;}
 
 
 
+//when u give size of vector then it initializes a vector whose size is n and automatticaly fills 0s
+
+vector<int> v(2)
+v.push_back(1);
+
+v=[0 0 1]
+
+//! so never use push_back when u defined the size of the vector
+
+
 
 //!size
 proper array ka size nikalna ho to sizeof(arr)/arr(arr[0]) kardo
@@ -137,6 +153,7 @@ proper array ka size nikalna ho to sizeof(arr)/arr(arr[0]) kardo
 //sorting in vector and sorting in array are 2 diff things
 sort(v.begin(),v.end());
 sort(arr+0,arr+n);
+
 
 
 
@@ -215,6 +232,8 @@ else{return false;}
 }
 
 
+v.erase();  //ek ek erase karega  //! dumbass use pop_back na
+v.clear();  //pura vector hi clear karegaf 
 
 
 //! STRING

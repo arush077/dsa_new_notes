@@ -28,8 +28,12 @@ x & (x-1) = 0
 only wont work for x=0
 
 
-//3. Playing with the kth bit (right se) in x
+//3. Playing with the kth bit (right se) in x //! BIT MASKING !!!!
  x & (1<<k)   == 0 or >0 yahi do cases he dhyaan rakna ya to 0 ya to greater than 0
+
+ //! ye bohot imp point to note he ki 
+ //! 0 ya to +ve dega ye
+ //! bit set he to +ve value dega and bit unset he to fir 0 dega
 
 
 

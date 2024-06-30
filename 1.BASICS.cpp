@@ -662,15 +662,52 @@ recursion(0,i,op);
 }
 
 
+//! PERMUTATION KA DEKH LE YAAR in recursion wala folder if you want drawio uska
+//! "front partion types marke swap(temp[i],temp[j])" karna
 
-//! Generate all permutations of a string
-void f(int i,string &s){
-    if(i==n-1){cout<<s; return ;}   //BC  //!VIMP : BASE CASE ME "RETURN ;" bhi dalne ki aadat daalo 
+//! Generate all permutations of a string s
+
+
+
+                   i
+                   abc       
+      [  abc         bac          cab  ]    (for loop ka natija from i to last element)
+                                                              
+          i           i            i
+         abc         bac          cab
+      [abc acb]    [bac bca]     [cab cba]    (for loop ka natija from i to last element)
+ 
+
+    void f(i,s,   vector<string> ans){
+
+        if(i==s.length()){
+            //bas push karo 
+            ans.push_back(s);
+            return ;                     //! VIMP to return 
+        }
+
+        for(int j=i;j<s.length();j++){          //! front partition kar aur fir swap call swap karde matlab i ko pakdo aur j ko chalao and swap karke call karo
+            swap(s[i],s[j]);              
+            f(i+1,s,ans);
+            swap(s[i],s[j]);
+        }
+
+
+    }
+
+
+
+
+
+
+
+    void f(int i,vector<int>nums,vector<vector<int>> &ans){ 
+    if(i==nums.size()){ans.push_back(nums); return ;}   //BC  //!VIMP : BASE CASE ME "RETURN ;" bhi dalne ki aadat daalo 
     
-    for(int j=i;i<n;i++){
-        temp=s;                         //agar temp string nahi use karoge to fir ABC then A->A so ABC then A->B BAC then abhi BAC will be used but we wanted ABC me A->C but here we have a BAC instead which we dont want this ye bt islie aarahi he because you are passing it by reference so next stage wale ke answer/string value previous stages me bhi jud jaaenge
-        swap(temp[i],temp[j]);
-        f(i+1,temp);
+    for(int j=i;j<nums.size();j++){
+        swap(nums[i],nums[j]);
+        f(i+1,nums,ans);
+        swap(nums[i],nums[j]);
 
     }
 
@@ -1358,4 +1395,5 @@ infix    eg : ((7*9) - 8) /2
         }
 
         return st.top();
+
 

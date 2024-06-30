@@ -1,4 +1,4 @@
-//! Longest common Palindromic Subsequence
+//! Longest Palindromic Subsequence
 https://leetcode.com/problems/longest-palindromic-subsequence/description/
 
 

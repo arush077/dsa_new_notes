@@ -1,6 +1,4 @@
-class Solution {
-public:
-    vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites) {
+https://leetcode.com/problems/course-schedule/solutions/?envType=study-plan-v2&envId=top-interview-150
 
 //! Simplem basic standard Topo Sort lagana he [1,0] matlab 0 comes before 1 so edges wala jo array given he usme [1,0] === 0-->1  so adj[s].push_back(f) matlabm adj[0].push_back(1) or 0-->1
 
@@ -27,7 +25,7 @@ for(int i=0;i<adj.size();i++){                     //! Filling the indegree
 queue <int> q;
 
 for(int i=0;i<indegree.size();i++){
-    if(indegree[i]==0){                           //! indegree jinka bhi 0 ho unko start me q me dal
+    if(indegree[i]==0){                           //! indegree jinka bhi 0 ho unko start me q me dal //why ? kyuki hame pehle un sab se traversal start karna he jinke indegree zero he 
         q.push(i);
     }
 }

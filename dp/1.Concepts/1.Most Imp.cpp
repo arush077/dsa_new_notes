@@ -51,16 +51,27 @@ int main(){
 }
 
 
+-----------------------------------------------------------------
+//! Take aur not-take dono nahi he but ek for loop he jaha function calling hori he and u want minimum
 
+int f(i){
+    for(){
+        f(i+1)
+    }
+}
 
+int f(i){
 
+    int mini = +1e9;
+    for(){
+        mini = min(mini,f(i+1))
+    }
+    return mini;                        //! u can return mini just like that
 
+}
+ 
 
-
-
-
-
-
+-----------------------------------------------------------------
 
 
 //! Max sum
@@ -255,3 +266,18 @@ int generator(int i,string &s){
     return min( do , dont_do )
 }
 
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+//1. Longest Palindrome Subsequence(LPS) : isme s and s_rev ka LCS will give you the answer
+
+
+
+// DP OR Slidingwindow : DP usually to subsequences pe lagta he and SlindingWindow subarray(contigous) walo par lagta he

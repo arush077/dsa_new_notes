@@ -11,7 +11,7 @@ If n > 10^8, the time complexity can be O(log n) or O(1).
 int ka range= [  (-2^n-1) , (2^n-1  - 1) ] ==== approx 10^9 tak allow karta he 
 only positive hota to [0 , 2^n -1]
 
-//!remember int--------10^9    (so INT_MAX goes upto 1e9+7)   (32 bit ki size of int)
+//!remember int--------10^9    (so INT_MAX goes upto 1e9+7)   (32 bit ki size of int)   so ye dono yaad rakna ki 10^9 in integer and 32 bits in binary
  //!        long-------10^18   approx itna allow karta he     (64 bit ki size of long)
  
 
@@ -19,6 +19,22 @@ only positive hota to [0 , 2^n -1]
 //! pow(i,x) gives u a float/double value 
 //! so a % pow(i,x) would be invalid as % ke saath hum decimals avoid karte he
 
+//! iterating over numbers karna he to fir while(temp!=0){ int last = temp%10 ;    temp=temp/10;}
+//! this helps while creating numbers ie sum = sum*10 + last
+
+//! use the negative approach what is this? wo saare condition likho jaha pe bt hogi and return false inside them and then last me return true;
+//if(x){return false;}
+//if(y){return false;}
+//if(z){return false;}
+//return true;
+
+
+
+tree LL graph
+
+tree me nodes hote he and left right hota he 
+LL me nodes hote he and next hota he 
+graph me integers hote he connected by adj list
 
 
 
@@ -131,6 +147,29 @@ void perms(int i,vector <int> &arr,int &count){
         perms(i+1,arr,count);          
         swap(arr[i],arr[k]);              //backtrack karna in for loop wala 
     }
+
+
+
+    ------------------------------------------------------------
+
+    //! perm me 
+
+    for(int j=i;j<n;j++){
+        swap
+        call
+        swap
+    }
+
+
+    //! generator for subset me do call aate he
+
+    s.push_back();
+    call                //call for take
+    s.pop_back;
+    call                //call for dont take
+
+
+    ------------------------------------------------------------
 
 
 
@@ -282,7 +321,46 @@ max ya min me pop to right se hi hoga  === [4,2,1]  pop() ===> [4,2]
 
 -----------------------------------------------------------------------------------------------------------
 
-11. characters se string kese banana
+11. STRING CHARACTER INTEGER CONFUSION ! 
+
+
+
+
+
+
+
+
+//1.------------------------------------------------------------------------
+string to integer  
+string s= "123"
+int x = ?
+int x = stoi(s);
+//before using stoi be sure s is number wala string hi
+
+alternative:
+if stoi doesnt work
+s[i] - '0' karke iterate bhi kar sakte 
+
+" si - '0' " yaad rakho yaar
+
+string s= "a"
+to fir yaha par si-'0' to nahi lekin si-'0' to chal jaega aur si bhi nahi lekin s[0] - 'a' chal jaega to be precise
+
+
+
+//2.-----------------------------------------------------------------------
+int to string
+
+int x=10;
+string s=?
+
+string s = stoi(x);
+
+alternative : stoi ka dne 
+
+
+
+//3.characters to string kese banana---------------------------------------
 
 char a='a';
 char b='b';
@@ -294,6 +372,12 @@ string s="";
 for(){
     s=s+a;
 }
+
+
+//4 string to character--------------------------------------------------
+string s="A";
+
+char ch = s[0];    lol s[i] karke ho jaata bas ye
 
 
 ---------------------------------------------------------------------------------------------------------
@@ -375,6 +459,7 @@ divide   = x>>k
 101  = rightshift by 1
 
 10/2=5
+10/2=5
 
 
 5<<1 = 5*2
@@ -384,3 +469,44 @@ divide   = x>>k
 
 1010 = 10 
 5*2=10
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+Linked list wala concept
+
+when you want to make a new list bohot asan he 
+Node * n1 = new Node(0);   //u start by making a dummy node remember this will be the tail in the later stages ie n1 will be the tail later
+Node * h1 = n1;            //u know tail that is n1 so now you also need to know the head that is h1 and assign it
+
+for(int i=0;i<n;i++){
+    Node * newnode = new Node(i);
+
+    n1->next = newnode; 
+    n1= n1->next;
+}
+
+h1=h1->next                   // alwyas ye karna mat bhula as you dont want the dummy node
+
+
+                                        //         h1                       n1                        so essentially you have head and node of the list
+//lets say finally the LL will look like       0 -- 0 -- 1 -- 2 -- 3 -- 4 -- 5
+
+
+//! TYPECASTING
+
+int a = 10^5;
+int b = 10^5;
+long c = a*b ; //bt hogi isme 
+
+//because
+
+int a = 10^5; //fair he as int me 10^9 tak allowed he 
+int b = 10^5; //fair he as int me 10^9 tak allowed he 
+long c = a*b ; //because int*int = int so 10^10 is initially int(not possible) later typecasted into long
+
+//better approach 
+int a = 10^5;
+int b = 10^5;
+long c = (long)a*(long)b ;  //har variable ko typecaste karna ese andar andar jaake
+
+
