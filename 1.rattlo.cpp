@@ -8,15 +8,35 @@ If n ≤ 10^8, the time complexity can be O(n).
 If n > 10^8, the time complexity can be O(log n) or O(1).
 
 
+sqrt(x) ka stl use karlo yaa fir usko nikall sakte ho using Binary Search
+
+
 int ka range= [  (-2^n-1) , (2^n-1  - 1) ] ==== approx 10^9 tak allow karta he 
 only positive hota to [0 , 2^n -1]
 
 //!remember int--------10^9    (so INT_MAX goes upto 1e9+7)   (32 bit ki size of int)   so ye dono yaad rakna ki 10^9 in integer and 32 bits in binary
- //!        long-------10^18   approx itna allow karta he     (64 bit ki size of long)
+ //!   long long-------10^18   approx itna allow karta he     (64 bit ki size of long)
  
 
+type casting karte time dono side type cast karna
 
-//! pow(i,x) gives u a float/double value 
+int x = 1e8;
+int y = 1e9;
+
+long z = x*y;   (//!overflow hoga as x*y dono multiply hoke pehle int main store hote jo nahi ho sakta)
+long z = (long)(x*y)  //! ab multiply hote hi long me jaaenge as long long 1e8 * 1e9 allowed he
+
+//! VIMP while using pow if pow is overflowing
+long long ans = (long long)(   pow(x,2)   );
+
+
+2^31 - 1 bhi use hota he what is this its also integer only but signed integer me usually [-2^31+1, 2^31-1]
+
+
+
+
+--------------------------------------------------------------
+//! pow(i,x) gives u a float/double value and this works for negative powers also
 //! so a % pow(i,x) would be invalid as % ke saath hum decimals avoid karte he
 
 //! iterating over numbers karna he to fir while(temp!=0){ int last = temp%10 ;    temp=temp/10;}
@@ -27,7 +47,7 @@ only positive hota to [0 , 2^n -1]
 //if(y){return false;}
 //if(z){return false;}
 //return true;
-
+-----------------------------------------
 
 
 tree LL graph
@@ -37,8 +57,26 @@ LL me nodes hote he and next hota he
 graph me integers hote he connected by adj list
 
 
+-------------------------------------------
+generating substrings O(n^2).     using 2 pointer i and j      as ( i= 0 to n ) and (j=i to n)
+generating subsequence O(2^n).    using generator ka recursive function  
+
+selecting a pair (i,j)  O(nc2)    using 2 pointer i and j      as ( i=0 to n ) and (j=i+1 to n)
 
 
+
+
+---------------------------------------------
+sqrt(x)
+
+iska stl he int x = sqrt(x);
+
+//implementation he using bs
+0 to x ka search space rakho and karo find check karo if mid*mid == x he kya and move pointers acc
+
+
+
+---------------------------------------------
 
 
 1.stock buy sell ka max diff when (sell ka index > buy ka index) 
@@ -510,3 +548,20 @@ int b = 10^5;
 long c = (long)a*(long)b ;  //har variable ko typecaste karna ese andar andar jaake
 
 
+-------------------------------------------------------------
+nc2 ka optimized code (total no of ways you can select any 2 elements)
+
+//normal code
+return (n*(n-1)) / 2 ;  //! problem ye he isme ki n*(n-1) can become very very big sometimes
+
+//! so you can pull in the 2 inside to avoid such a big multiplication
+//! n ya n-1 dono me se koi ek to even hoga so divide that by 2 and multiply the rest simply
+
+long long nc2(long long n){
+        if(n%2==0){
+            return (n/2)*(n-1);
+        }
+        else{
+            return (n)*((n-1)/2);
+        }
+    }

@@ -148,7 +148,7 @@ proper array ka size nikalna ho to sizeof(arr)/arr(arr[0]) kardo
 
 //! Pair me hamesha .first and .second hi chalta
 
-//! Sorting Weird Shit
+//! Sorting Weird Shit using comparators
 
 //sorting in vector and sorting in array are 2 diff things
 sort(v.begin(),v.end());
@@ -230,6 +230,28 @@ bool cmp(vector<int> a,vector<int>b){
 if(b[1]>a[1]){return true;}
 else{return false;}
 }
+
+
+
+//5. most tricky is sorting a map on the basis of values and not keys
+1->1
+2->6
+3->5
+
+//so here sort this acc to their values
+//put the pairs in a vector v=[{1,1},{2,3},{3,5}]
+//so basically convert the map into a vector so that you have got the comparator ki flexibility
+
+sort(v.begin(),v.end(),cmp);
+
+bool cmp(pair<int,int> a,pair<int,int> b){
+
+if(a.second < b.second){return true;}
+else{return false;}
+
+}
+
+
 
 
 v.erase();  //ek ek erase karega  //! dumbass use pop_back na

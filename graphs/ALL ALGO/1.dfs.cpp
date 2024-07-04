@@ -1,1 +1,0 @@
-//used to make guccha and to connect the things together or for segregation
