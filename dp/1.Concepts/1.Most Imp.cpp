@@ -268,7 +268,29 @@ int generator(int i,string &s){
 
 
 
+-------------------------------------------------------------------------------------------------------------------
+maanlo ki agar ek take to chahiye hi chahiye warna bekar he pura in a maxi dp question(jisme maximum nikalna he)
 
+f(i,taken){
+
+if(i==n){
+    if(taken){return 0;}
+    else{
+        //abhi tak ek bhi taken nahi he bhai matlab kachra case he ye cancel this
+        return -1e9;
+    }
+
+    int take = f(i+1,1);
+    int nottake = f(i+1,take);
+    return max(take,nottake)
+
+}
+
+
+
+
+
+}
 
 
 
