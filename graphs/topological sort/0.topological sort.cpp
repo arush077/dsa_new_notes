@@ -6,6 +6,8 @@ to order dega wo tumhe as a result ... WOW!!!
 
 //also isme starting node nikalna hoga as there is an order
 // start from the nodes where indegree = 0
+
+//neighbors ke indegree kam karna and if indegree is 0 then push in the q
 // aur queue me push karte waqt indegree ko ek kam karte jaana
 
 // beacuse when node gets popped tab indegree of neighbor also redues by 1

@@ -3,7 +3,8 @@ https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/descrip
 lets say an array is given and you are required to make a tree out of it 
 
 //follow this standard template
-//u need to maintain 2 pointers pointing to the start and end of array
+
+//!CONCEPT : u need to maintain 2 pointers pointing to the start and end of array
 
 
 

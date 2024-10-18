@@ -11,17 +11,12 @@ for(int rowstart=0;rowstart<n;rowstart++){
             for(int colend=0;colend<m;colend++){
         //abhi rowstart rowend colstart colend define hogaya ab traverse karna he agar iske andar to kar sakte ho using double for loop
 
-
             //2d for loop to print the thing
             for(int i=rowstart;i<=rowend;i++){
                 for(int j=colstart;j<=colend;j++){
                     cout<<arr[i][j];
                 }
             } 
-
-
-
-
 
             }
         }

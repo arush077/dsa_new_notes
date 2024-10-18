@@ -5,7 +5,7 @@
 queue<int> q;
 vector<int> visited;
 
-q.pudh(0);
+q.push(0);
 visited[0]=1;
 
 while(!q.empty()){

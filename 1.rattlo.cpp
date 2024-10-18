@@ -8,6 +8,9 @@ If n ≤ 10^8, the time complexity can be O(n).
 If n > 10^8, the time complexity can be O(log n) or O(1).
 
 
+
+10! = 1e7
+
 sqrt(x) ka stl use karlo yaa fir usko nikall sakte ho using Binary Search
 
 
@@ -32,7 +35,28 @@ long long ans = (long long)(   pow(x,2)   );
 
 2^31 - 1 bhi use hota he what is this its also integer only but signed integer me usually [-2^31+1, 2^31-1]
 
+--------------------------------------------------------------
+log in c++
 
+1. only log2() and log() is allowed in STL
+double x = log2(n);
+double x = log(n);
+
+//if you want log3(n)
+double x = log(n) / log(3);
+
+// log is always stored in a double and to check if this double is integer or not
+double x = log2(n);
+
+if( floor(x) == x ){} //then x is an integer
+
+//WHERE IS LOG USED ---> while power checking
+
+check if n is power of 3 ?
+
+3^x = n 
+x = log3(n)   //check if this guy is an integer now as simple as that see upar how to do this
+    
 
 
 --------------------------------------------------------------
@@ -570,7 +594,7 @@ long long nc2(long long n){
 
 ----------------------------------------------------------------
 
-Wrapping / Rotation in strings
+Wrapping / Rotation / Jumping in strings
 
 example ke lie ye dekho
 shift('a') = 'b', shift('c') = 'd', and shift('z') = 'a'.

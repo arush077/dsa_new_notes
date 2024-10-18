@@ -1,0 +1,4 @@
+// how to define
+
+vector<int> arr(n,0) //usually when you wnat to use the indexing later ki arr[1] arr[2] types chahiye hoga to
+vector<int> arr    

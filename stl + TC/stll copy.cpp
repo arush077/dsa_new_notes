@@ -156,7 +156,7 @@ sort(arr+0,arr+n);
 
 
 
-
+//! COMPARATORS 
 //1.sort in descending order
 
 so u need to use cmp function here and a > b true kardia to desc me hojaega a> b false kiya to desc me ho jaega
@@ -164,8 +164,7 @@ concept : ki simply vector <int> v so andar wale ko bhejo "int a" and "int b"
 
 
 ek imp chiz ye he ki if(a<b){return false} meaning he [2,3] so a=2 and b=3 (2<3){return false;}=> return false matlab swapping hogi so [2,3] ki swapping matlab [3,2] so bas itna yaad rakho ki a is the first one, b is the second one, and tru aaye to chod do and false aaye to swap kardo bas
-
-
+//jab false aata he tab swappig karte he 
 
 int cmp (int a,int b){
     if(a>b){return true;}
@@ -175,7 +174,7 @@ int cmp (int a,int b){
 int main()
 {
     vector <int> v ={5,4,3,2} ;   
-    sort(v.begin(),v.end(),cmp);
+    sort(v.begin(),v.end(),cmp);   //! last parameter me dalte he iss comparator ko
 }
 
 
