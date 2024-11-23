@@ -107,6 +107,15 @@ iska stl he int x = sqrt(x);
 
 //dmm(difference le,maximum of diff kar,minimize buy) //and buy ko start me index 0 pe set karna
 
+// ek alternative he of suffix max jisme tum right side se maximum store karke rkh do ek array ke andar
+[2,3,6,1,4]
+
+[6,6,6,4,4] = suffix max (right side se max lena) = ye sell bataega
+-------------------
+[4,3,0,3,0]= difference array nikalo simply
+
+
+
 
 2. reverse a no : ans=ans*10 + rem //! VIMP
 3. dec to binary
@@ -246,7 +255,7 @@ void perms(int i,vector <int> &arr,int &count){
 
     and then stoi(s) and to_string(x)   //! ALWAYS use stoi with if(s.length()){int x=stoi(s)} becuz exception throw karega is s is empty
 
-
+    //stoi(x) for stoi x can be both negative or positive
 
     6.sorting me bas merge sort and heap sort (mh) hi nlogn me kaaam karta he and also ll ke sorting me merge sort help karti he and merge sort ki SC:O(n) hoti he lekin heap sort ki to O(1) hojati he
     void ms(int s,int e,int arr){
@@ -264,7 +273,8 @@ void perms(int i,vector <int> &arr,int &count){
 5. SUBBARAYS 
 
 //sum of subarrays=k (nooo sliding window simply x-y=k so find if k-x exists in the set)            //where x and y are prefix sum from the start to any 2 random points on the array and not 2 array elements rather sum upto those points
-//count of subarray=k (again no sliding windows x-y=k so u need a map now to store indexes also)
+//count of subarray=k (again no sliding windows x-y=k so u need a 
+ now to store indexes also)
 
 
 
@@ -634,3 +644,7 @@ so if you had to calculate z+1 then,
 ----------------------------------------------------------------------------
 
 
+// 2 pointer approach and BS ka difference
+
+// 2 pointer me s=s+1 ya e=e-1 hoga 
+// BS me s=mid+1, e=mid-1 hoga

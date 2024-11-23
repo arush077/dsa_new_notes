@@ -5,11 +5,10 @@ void generator(int i,vector<int> &temp,vector<int>arr){
     }
 
 
-    temp.push_back(a);
+    temp.push_back(a);          //take
     generator(i+1,temp,arr);
     temp.pop_back();
-
-    generator(i+1,temp,arr);
+    generator(i+1,temp,arr);    //nottake
 }
 
 

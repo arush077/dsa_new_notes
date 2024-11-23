@@ -157,3 +157,10 @@ https://leetcode.com/problems/simplify-path/description/?envType=study-plan-v2&e
 
 
         return aans;
+
+
+
+// 2 pointer approach and BS ka difference
+
+// 2 pointer me s=s+1 ya e=e-1 hoga 
+// BS me s=mid+1, e=mid-1 hoga

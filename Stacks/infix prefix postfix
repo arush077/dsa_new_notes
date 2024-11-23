@@ -1,0 +1,48 @@
+prefix postfix and infix 
+
+
+
+
+postfix  eg : 7982*-/
+prefix   eg : *-/7982
+infix    eg : ((7*9) - 8) /2
+
+
+//simple he postfix me left se right ki taraf iterate
+//prefix me right se left ki tarah iterate
+//number he to push karo stack me
+//operator he to no1 and no2 nikalo from top of stack no1 operator no2 ke result ko wapas dalo stack me
+
+        stack <int> st;
+        for(int i=0;i<tokens.size();i++){
+            string s = tokens[i];
+
+            //stoi use karne se pehle andar dekho uske hamesha ek valid guy hi hona chahiye warna what():stoi ka error dega
+
+            if( s!="+" && s!="-" && s!="*" && s!="/" ){
+            int y=stoi(s);
+            
+            if(y>=0 && y <=9){
+                //number he to push in the stack 
+                st.push( y );
+            }
+            }
+            else{
+                //operator aaya he 
+                int no2= st.top();
+                st.pop();
+                int no1 = st.top();
+                st.pop();
+
+                int x= 1;
+                if(tokens[i]=="+"){x=no1+no2;}
+                if(tokens[i]=="-"){x=no1-no2;}
+                if(tokens[i]=="*"){x=no1*no2;}
+                if(tokens[i]=="/"){x=no1/no2;}
+                st.push(x);
+            }
+        }
+
+        return st.top();
+
+

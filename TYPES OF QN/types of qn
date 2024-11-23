@@ -1,1 +1,30 @@
+
+
+dp
+
 coin change -> denomination and target sum di hogi and u need to minimize the no of coins to make up that particular target value and u return min no of coins needed to make that sum
+
+
+
+
+
+backtracking
+
+n queens ->  
+
+
+f(i){
+    if(i==n){//here you get the entire thing}
+    for(int j=0;j<n){
+        if(valid(i,j)){
+            grid[i][j] = 'Q'    //keep the queen 
+            f(i+1);             //call aage
+            grid[i][j] = '.'    //backtrack
+        }
+    }
+}
+}
+
+go to each row one by one and inside that use a for loop to go to every element and check if you can keep the queen(only if valid) and remove queen while going back, if(i==n) pe you will get the final thing
+
+isvalid me just check upar ka 1.top vertical, 2. slant top left, 3. slant top right  as you are going from upar se niche

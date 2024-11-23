@@ -1,0 +1,13 @@
+
+
+
+
+
+
+
+// buy and sell once  = dmm(difference, max(diff), min buy) | can also solve using suffix max, matlab right side se maximum walo ko ek naye array me dalo
+dp/STOCKS/1.STOCKS.cpp
+
+// buy and sell as many times = dp ka qn, take buy as a variable, when buy = true you have 2 options to buy or not buy and when buy = false you have 2 options to sell or not sell
+dp/STOCKS/2.Stock-2 pg1.cpp
+

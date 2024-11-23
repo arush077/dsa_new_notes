@@ -291,8 +291,14 @@ if(i==n){
 
 
 }
+---------------------------------------------------------------------------------------------------------------------
 
+// if your dp qn requires a change in the existing array, matlab changing variable jese "i" hota he vese koi vector bhi change hora ho to 
+// its better to keep nottake upar than take, 
+// because usually these changes happen inside take so if you keep the take upar then this will messup the nottake wala part
 
+//eg : shopping offer problem of dp (where you iterate over the offers and do take or not take)
+https://leetcode.com/problems/shopping-offers/?envType=problem-list-v2&envId=dynamic-programming
 
 
 
@@ -302,4 +308,4 @@ if(i==n){
 
 
 
-// DP OR Slidingwindow : DP usually to subsequences pe lagta he and SlindingWindow subarray(contigous) walo par lagta he
+//2. DP OR Slidingwindow : DP usually to subsequences pe lagta he and SlindingWindow subarray(contigous) walo par lagta he

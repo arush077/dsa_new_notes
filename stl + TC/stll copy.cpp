@@ -166,7 +166,7 @@ concept : ki simply vector <int> v so andar wale ko bhejo "int a" and "int b"
 ek imp chiz ye he ki if(a<b){return false} meaning he [2,3] so a=2 and b=3 (2<3){return false;}=> return false matlab swapping hogi so [2,3] ki swapping matlab [3,2] so bas itna yaad rakho ki a is the first one, b is the second one, and tru aaye to chod do and false aaye to swap kardo bas
 //jab false aata he tab swappig karte he 
 
-int cmp (int a,int b){
+bool cmp (int a,int b){
     if(a>b){return true;}
     else{return false;}
 }
@@ -181,7 +181,7 @@ int main()
 
 //2.sorting a vector containing pair <int,int> in it in asc order acc to first element of the pair 
 concept : ki simply vector <pair<int,int>> v so andar wale ko bhejo "pair<int,int>a" and "pair<int,int>b"
-int cmp(pair <int,int> a,pair <int,int> b){
+bool cmp(pair <int,int> a,pair <int,int> b){
     if(b.first > a.first){return true;}
     else{return false;}
 }
@@ -238,7 +238,7 @@ else{return false;}
 3->5
 
 //so here sort this acc to their values
-//put the pairs in a vector v=[{1,1},{2,3},{3,5}]
+//put the pairs in a vector v=[{1,1},{2,6},{3,5}]
 //so basically convert the map into a vector so that you have got the comparator ki flexibility
 
 sort(v.begin(),v.end(),cmp);

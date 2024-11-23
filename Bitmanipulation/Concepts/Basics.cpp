@@ -1,5 +1,8 @@
 //!Bitwise operations BC
 
+//! ^ is the exor operator in c++ dont confuse this with power operation of math
+
+
 //1.check odd or even
 x&1 = 0 for even
 x&1 = 1 for odd  
@@ -21,13 +24,14 @@ just remember ki ye 1 actual 1 nahi hota but 00000....001 hota he
 
 this is much faster than %2
 
-
+------------------------------------------------
 //2.check if x is power of 2
 x & (x-1) = 0  
 
 only wont work for x=0
 
 
+------------------------------------------------
 //3. Playing with the kth bit (right se) in x //! BIT MASKING !!!!
  x & (1<<k)   == 0 or >0 yahi do cases he dhyaan rakna ya to 0 ya to greater than 0
 
@@ -58,6 +62,7 @@ and 1<<k generates 100000 and 1 at kth posn
 *set kth bit : x | (1<<k)
 *unset kth bit : x & (1<<k)
 
+-------------------------------------------------
 //4.multiply or divide a no by 2^k
 multiply = x<<k
 divide   = x>>k
@@ -84,7 +89,21 @@ divide   = x>>k
 
 
 ---------------------------------------------------
+//5. no of ones in binary representation of n 
+
+int count = 0;
+while(n!=0){
+    n = n & (n-1);
+    count++
+}
+return count;
+
+--------------------------------
 
 //*. x is divisible by 2 = x & 1
 
 //*. x is a power of 2   = x & ( x-1 )
+
+// rightmost set bit = x & -x
+
+// XOR with 1 and 0 = exor with 0 doesnt change the no, exor with 1 makes the complement. (XOR is used in the qn jaha pe all elements occur 2 times but one element occurs only once)

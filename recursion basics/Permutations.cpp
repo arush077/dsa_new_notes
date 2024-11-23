@@ -8,7 +8,6 @@ void perms(int i,vector <int> &arr,int &count){          //! void hi he just lik
         cout<<endl;}
     }
    
-   
     for(int k=i;k<arr.size();k++){
         swap(arr[i],arr[k]);               //remember swap call swap
         perms(i+1,arr,count);          

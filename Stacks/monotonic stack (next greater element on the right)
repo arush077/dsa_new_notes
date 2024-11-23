@@ -1,0 +1,18 @@
+https://leetcode.com/problems/next-greater-element-i/submissions/1441547113/
+
+https://www.youtube.com/shorts/c6PTUtstr5M
+
+
+        // nge is easy using a monotonic stack(kuch nahi he bas piche se traverse karke stack fill karenge)
+        // you can find nge of all the elements in nums2
+        // uske baad nums1 me jo elements he bas unka answer return karna he by looking at nums2 ka nge
+        // all in all nums2 ka hi nge chahiye
+
+
+
+        // start travesing from the back
+        // you need an element which is on the right and is just greater than the current element
+
+        // is stack is empty you return a -1 
+        // if the top in the stack is bigger than the current element then it is the answer
+        // if the top in the stack is smaller than than the current element we start removing elements until we get a guy in stack which is bigger than the current element
